@@ -1,4 +1,4 @@
-package learn.controller;
+package com.tjh.learn.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
