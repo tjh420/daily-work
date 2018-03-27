@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <title>填写商户信息</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    html,body,.shop-message{
+        height:100%;
+        width:100%;
+        margin:0;
+        padding:0;
+        background-color: rgb(245,245,245);
+    }
+    .shop-message{
+        position:relative;
+    }
+    .shop-message-header{
+        height:55px;
+        width:100%;
+        text-align: center;
+        font-size:15px;
+        line-height:55px;
+        font-weight:600;
+        background-color: #fff;
+        border-bottom:1px solid #999;
+    }
+    .shop-message-form{
+        position:absolute;
+        top:80px;
+        bottom:50px;
+        width:100%;
+    }
+    .shop-message-footer{
+        height:60px;
+        width:100%;
+        bottom:0;
+        position: absolute;
+        /*border-top:1px solid #999;*/
+    }
+    .shop-message-submit{
+        width:90%;
+        margin-left:5%;
+        background-color: #269FEB;
+        border-radius: 6px;
+        font-size:15px;
+        color:#fff;
+        margin-top:2px;
+        height:45px;
+        outline:none;
+    }
+    .shop-message-form-item{
+        font-size:15px;
+        height:50px;
+        border-bottom:1px solid #999;
+        background-color: #fff;
+        line-height:50px;
+        padding-left:10px;
+    }
+    .shop-message-form-item > .label-container{
+        width:30%;
+        float:left;
+        display:inline-block;
+    }
+    .shop-message-form-item > .input-container{
+        width:70%;
+        float:left;
+        display:inline-block;
+    }
+    .shop-message-form-item > .input-container >input{
+        width:90%;
+        height:20px;
+        line-height:20px;
+        font-size:15px;
+        outline:none;
+        border:none;
+    }
+    .shop-message-form-item > .input-container >select{
+        width:90%;
+        height:25px;
+        line-height:25px;
+        font-size:15px;
+        outline:none;
+        border:none;
+        border-bottom:1px solid #999;
+    }
+</style>
+
+<body>
+    <div class="shop-message">
+        <div class="shop-message-header">
+            <label>请填写商户信息</label>
+        </div>
+        <div class="shop-message-form">
+            <div class="shop-message-form-item">
+                <div class="label-container">
+                    <label>卖方名称</label>
+                </div>
+                <div class="input-container">
+                    <input placeholder="请输入卖方名称"/>
+                </div>
+            </div>
+            <div class="shop-message-form-item">
+                <div class="label-container">
+                    <label>卖方税号</label>
+                </div>
+                <div class="input-container">
+                    <input placeholder="请输入卖方税号"/>
+                </div>
+            </div>
+            <div class="shop-message-form-item">
+                <div class="label-container">
+                    <label>卖方地址</label>
+                </div>
+                <div class="input-container">
+                    <input placeholder="请输入卖方地址"/>
+                </div>
+            </div>
+            <div class="shop-message-form-item">
+                <div class="label-container">
+                    <label>卖方电话</label>
+                </div>
+                <div class="input-container">
+                    <input placeholder="请输入卖方电话"/>
+                </div>
+            </div> <div class="shop-message-form-item">
+            <div class="label-container">
+                <label>税控盘号</label>
+            </div>
+            <div class="input-container">
+                <input placeholder="请输入卖方税控盘号"/>
+            </div>
+        </div>
+            <div class="shop-message-form-item">
+                <div class="label-container">
+                    <label>推荐人</label>
+                </div>
+                <div class="input-container">
+                    <input placeholder="请输入推荐人"/>
+                </div>
+            </div>
+            <!--<div class="shop-message-form-item">-->
+                <!--<div class="label-container">-->
+                    <!--<label>卖方名称</label>-->
+                <!--</div>-->
+                <!--<div class="input-container">-->
+                    <!--<input placeholder="请输入卖方名称"/>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="shop-message-form-item">
+                <div class="label-container">
+                    <label>分支机构</label>
+                </div>
+                <div class="input-container">
+                    <select>
+                        <option>1111</option>
+                        <option>2222</option>
+                        <option>13333111</option>
+                        <option>444</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <div class="shop-message-footer">
+            <button class="shop-message-submit" type="button">确&nbsp;&nbsp;&nbsp;&nbsp;定</button>
+        </div>
+    </div>
+
+    <!--<form id="merchantForm">-->
+        <!--<div id="content">-->
+
+                <!--卖方名称-->
+                <!--<input placeholder="请输入卖方名称"/>-->
+
+            <!--</br><tr>-->
+                <!--<td>卖方税号</td>-->
+                <!--<td><input placeholder="请输入卖方税号"/></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>卖方地址</td>-->
+                <!--<td><input placeholder="请输入卖方地址"/></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>卖方电话</td>-->
+                <!--<td><input placeholder="请输入卖方电话"/></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>税控盘号</td>-->
+                <!--<td><input placeholder="请输入卖方税控盘号"/></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>推荐人</td>-->
+                <!--<td><input placeholder="请输入推荐人"/></td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+                <!--<td>分支机构</td>-->
+                <!--<td><input placeholder="请输入分支机构"/></td>-->
+            <!--</tr>-->
+        <!--</div>-->
+        <!--<div id="submit">-->
+            <!--<button type="submit">确定</button>-->
+        <!--</div>-->
+    <!--</form>-->
+</body>
+</html>

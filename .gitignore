@@ -1,0 +1,8 @@
+/.idea
+/daily-work.iml
+/target
+*.iml
+/log
+*.log
+
+/**/target
