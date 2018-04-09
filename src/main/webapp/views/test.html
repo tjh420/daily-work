@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>Title</title>
+
+    <script type="text/javascript" src="../js/jquery/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="../js/jquery/jquery-plugins/jquery.qrcode.min.js"></script>
+</head>
+<body>
+<div style="margin: 20% auto auto auto;text-align: center">
+
+        <div id="merchantQrCode"></div>
+<p class="weui_msg_desc"><font size="3" color="#ff8c00">商户水牌二维码</font></p>
+</div>
+
+<script>
+    $(function () {
+        var url = "https://mobl-test.chinaums.com/fapiao-portal/mer_issue.do?id=cf98561052a145beb9bcac0e839e3e1c&amp;checkCode=C42D5A0B02360E85".replace(/&amp;/g, '&')
+        alert(url)
+        $("#merchantQrCode").qrcode({
+            width: 250,
+            height: 250,
+            text: url
+        });
+    });
+
+</script>
+</body>
+</html>
