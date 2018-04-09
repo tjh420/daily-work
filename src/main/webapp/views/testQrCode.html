@@ -17,6 +17,7 @@
 
 <script>
     $(function () {
+        //在接收url参数时外面一定要套上“”，否则生成二维码会出现参数不对的问题
         var url = "https://mobl-test.chinaums.com/fapiao-portal/mer_issue.do?id=cf98561052a145beb9bcac0e839e3e1c&amp;checkCode=C42D5A0B02360E85".replace(/&amp;/g, '&')
         alert(url)
         $("#merchantQrCode").qrcode({
