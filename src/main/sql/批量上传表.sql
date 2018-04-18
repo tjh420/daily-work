@@ -5,8 +5,7 @@ create table FP_INVOICE_REPLACE
   version                   NUMBER(8) not null,
   create_time               TIMESTAMP(6) not null,
   update_time               TIMESTAMP(6) not null,
-
-  seller_tax_no           VARCHAR2(20) not null,
+  seller_tax_no             VARCHAR2(20) not null,
   invoice_upload_type       VARCHAR2(1) default '1' not null,
   device_type               VARCHAR2(1) not null,
   invoice_type_code         VARCHAR2(3) not null,
@@ -16,7 +15,6 @@ create table FP_INVOICE_REPLACE
   app_id                    VARCHAR2(10),
   organization_code         VARCHAR2(64),
   serial_no                 VARCHAR2(50),
-
   mer_order_id              VARCHAR2(50),
   invoice_code              VARCHAR2(12),
   invoice_no                VARCHAR2(8),
@@ -27,7 +25,6 @@ create table FP_INVOICE_REPLACE
   buyer_tax_code            VARCHAR2(20),
   buyer_name                VARCHAR2(100),
   buyer_address             VARCHAR2(85),
-
   buyer_telephone           VARCHAR2(15),
   buyer_bank                VARCHAR2(80),
   buyer_account             VARCHAR2(20),
@@ -38,7 +35,6 @@ create table FP_INVOICE_REPLACE
   seller_bank               VARCHAR2(80),
   seller_account            VARCHAR2(20),
   invoice_type              VARCHAR2(1),
-
   red_info_no               VARCHAR2(20),
   original_invoice_code     VARCHAR2(12),
   original_invoice_no       VARCHAR2(8),
@@ -49,7 +45,6 @@ create table FP_INVOICE_REPLACE
   deductible_amount         NUMBER(18,2),
   invoice_total_price       NUMBER(18,2),
   invoice_total_tax         NUMBER(18,2),
-
   invoice_total_price_tax   NUMBER(18,2),
   sign                      VARCHAR2(40) default '0000004282000000',
   tax_disk_no               VARCHAR2(12),
@@ -60,7 +55,6 @@ create table FP_INVOICE_REPLACE
   notification_no           VARCHAR2(20),
   credentials_type          VARCHAR2(10),
   credentials_no            VARCHAR2(50),
-
   remark                    VARCHAR2(184),
   goods_detail              CLOB
 )
@@ -99,7 +93,6 @@ comment on column FP_INVOICE_REPLACE.create_time
   is '创建时间';
 comment on column FP_INVOICE_REPLACE.update_time
   is '更新时间';
-
 comment on column FP_INVOICE_REPLACE.seller_tax_no
   is '卖方纳税人识别号';
 comment on column FP_INVOICE_REPLACE.invoice_upload_type
@@ -120,7 +113,6 @@ comment on column FP_INVOICE_REPLACE.organization_code
   is '组织机构代码，不为空表示所上传票归属于当前机构，为空表示所上传发票归属于税号所属机构';
 comment on column FP_INVOICE_REPLACE.serial_no
   is '开票流水号';
-
 comment on column FP_INVOICE_REPLACE.mer_order_id
   is '订单编号';
 comment on column FP_INVOICE_REPLACE.invoice_code
@@ -141,7 +133,6 @@ comment on column FP_INVOICE_REPLACE.buyer_name
   is '购方单位名称';
 comment on column FP_INVOICE_REPLACE.buyer_address
   is '购方地址';
-
 comment on column FP_INVOICE_REPLACE.buyer_telephone
   is '购方电话';
 comment on column FP_INVOICE_REPLACE.buyer_bank
@@ -162,7 +153,6 @@ comment on column FP_INVOICE_REPLACE.seller_account
   is '销方账号';
 comment on column FP_INVOICE_REPLACE.invoice_type
   is '开票类型0:正数发票（蓝票） 1：负数发票（红票）';
-
 comment on column FP_INVOICE_REPLACE.red_info_no
   is '红字信息表编号';
 comment on column FP_INVOICE_REPLACE.original_invoice_code
@@ -183,7 +173,6 @@ comment on column FP_INVOICE_REPLACE.invoice_total_price
   is '合计金额，保留两位小数';
 comment on column FP_INVOICE_REPLACE.invoice_total_tax
   is '合计税额，保留两位小数';
-
 comment on column FP_INVOICE_REPLACE.invoice_total_price_tax
   is '价税合计，保留两位小数';
 comment on column FP_INVOICE_REPLACE.sign
@@ -204,7 +193,6 @@ comment on column FP_INVOICE_REPLACE.credentials_type
   is '证件类型，01-身份证、02-护照、03-军官证、04-士兵证、05-港澳居民来往内地通行证、06-台湾居民来往大陆通行证、07-其他';
 comment on column FP_INVOICE_REPLACE.credentials_no
   is '证件号码';
-
 comment on column FP_INVOICE_REPLACE.remark
   is '备注';
 comment on column FP_INVOICE_REPLACE.goods_detail
