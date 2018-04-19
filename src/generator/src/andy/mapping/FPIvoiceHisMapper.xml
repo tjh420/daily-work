@@ -1,0 +1,2893 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="andy.dao.FPIvoiceHisMapper">
+  <resultMap id="BaseResultMap" type="andy.model.FPIvoiceHis">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="VERSION" jdbcType="DECIMAL" property="version" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="EXPIRE_TIME" jdbcType="TIMESTAMP" property="expireTime" />
+    <result column="ISSUE_SEQUENCE" jdbcType="VARCHAR" property="issueSequence" />
+    <result column="QR_CODE_ID" jdbcType="VARCHAR" property="qrCodeId" />
+    <result column="CONSUMER_ID" jdbcType="VARCHAR" property="consumerId" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="INVOICE_MATERIAL" jdbcType="VARCHAR" property="invoiceMaterial" />
+    <result column="INVOICE_TYPE" jdbcType="VARCHAR" property="invoiceType" />
+    <result column="INVOICE_CODE" jdbcType="VARCHAR" property="invoiceCode" />
+    <result column="INVOICE_NO" jdbcType="VARCHAR" property="invoiceNo" />
+    <result column="CHECK_CODE" jdbcType="VARCHAR" property="checkCode" />
+    <result column="DEVICE_NO" jdbcType="VARCHAR" property="deviceNo" />
+    <result column="CIPHER_CODE" jdbcType="VARCHAR" property="cipherCode" />
+    <result column="ISSUE_DATE" jdbcType="TIMESTAMP" property="issueDate" />
+    <result column="MER_ORDER_ID" jdbcType="VARCHAR" property="merOrderId" />
+    <result column="MER_ORDER_DATE" jdbcType="VARCHAR" property="merOrderDate" />
+    <result column="MERCHANT_ID" jdbcType="VARCHAR" property="merchantId" />
+    <result column="TERMINAL_ID" jdbcType="VARCHAR" property="terminalId" />
+    <result column="BUYER_NAME" jdbcType="VARCHAR" property="buyerName" />
+    <result column="BUYER_TAX_CODE" jdbcType="VARCHAR" property="buyerTaxCode" />
+    <result column="BUYER_ADDRESS" jdbcType="VARCHAR" property="buyerAddress" />
+    <result column="BUYER_TELEPHONE" jdbcType="VARCHAR" property="buyerTelephone" />
+    <result column="BUYER_BANK" jdbcType="VARCHAR" property="buyerBank" />
+    <result column="BUYER_ACCOUNT" jdbcType="VARCHAR" property="buyerAccount" />
+    <result column="SELLER_NAME" jdbcType="VARCHAR" property="sellerName" />
+    <result column="SELLER_TAX_CODE" jdbcType="VARCHAR" property="sellerTaxCode" />
+    <result column="SELLER_ADDRESS" jdbcType="VARCHAR" property="sellerAddress" />
+    <result column="SELLER_TELEPHONE" jdbcType="VARCHAR" property="sellerTelephone" />
+    <result column="SELLER_BANK" jdbcType="VARCHAR" property="sellerBank" />
+    <result column="SELLER_ACCOUNT" jdbcType="VARCHAR" property="sellerAccount" />
+    <result column="STORE_ID" jdbcType="VARCHAR" property="storeId" />
+    <result column="SERVICE_PROVIDER" jdbcType="VARCHAR" property="serviceProvider" />
+    <result column="SP_DEVICE_ID" jdbcType="VARCHAR" property="spDeviceId" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="PAYEE" jdbcType="VARCHAR" property="payee" />
+    <result column="CHECKER" jdbcType="VARCHAR" property="checker" />
+    <result column="DRAWER" jdbcType="VARCHAR" property="drawer" />
+    <result column="TOTAL_PRICE_INCLUDING_TAX" jdbcType="DECIMAL" property="totalPriceIncludingTax" />
+    <result column="TOTAL_TAX" jdbcType="DECIMAL" property="totalTax" />
+    <result column="TOTAL_PRICE" jdbcType="DECIMAL" property="totalPrice" />
+    <result column="REVERSE_SEQUENCE" jdbcType="VARCHAR" property="reverseSequence" />
+    <result column="REVERSE_DATE" jdbcType="TIMESTAMP" property="reverseDate" />
+    <result column="MSG_TYPE" jdbcType="VARCHAR" property="msgType" />
+    <result column="ERR_CODE" jdbcType="VARCHAR" property="errCode" />
+    <result column="ERR_MSG" jdbcType="VARCHAR" property="errMsg" />
+    <result column="NOTIFY_URL" jdbcType="VARCHAR" property="notifyUrl" />
+    <result column="NOTIFY_MOBILE_NO" jdbcType="VARCHAR" property="notifyMobileNo" />
+    <result column="NOTIFY_EMAIL" jdbcType="VARCHAR" property="notifyEmail" />
+    <result column="SOURCE" jdbcType="VARCHAR" property="source" />
+    <result column="SUB_INST" jdbcType="VARCHAR" property="subInst" />
+    <result column="MERCHANT_NAME" jdbcType="VARCHAR" property="merchantName" />
+    <result column="REVERSE_INVOICE_CODE" jdbcType="VARCHAR" property="reverseInvoiceCode" />
+    <result column="REVERSE_INVOICE_NO" jdbcType="VARCHAR" property="reverseInvoiceNo" />
+    <result column="INVALID_SEQUENCE" jdbcType="VARCHAR" property="invalidSequence" />
+    <result column="INVALID_DATE" jdbcType="TIMESTAMP" property="invalidDate" />
+    <result column="INVALID_INVOICE_CODE" jdbcType="VARCHAR" property="invalidInvoiceCode" />
+    <result column="INVALID_INVOICE_NO" jdbcType="VARCHAR" property="invalidInvoiceNo" />
+    <result column="INVALID_PERSON" jdbcType="VARCHAR" property="invalidPerson" />
+    <result column="EXTEND1" jdbcType="VARCHAR" property="extend1" />
+    <result column="EXTEND2" jdbcType="VARCHAR" property="extend2" />
+    <result column="TRACE_ID" jdbcType="VARCHAR" property="traceId" />
+    <result column="TOTAL_REVERSED_AMOUNT" jdbcType="DECIMAL" property="totalReversedAmount" />
+    <result column="REVERSE_CHECK_CODE" jdbcType="VARCHAR" property="reverseCheckCode" />
+    <result column="TAX_METHOD" jdbcType="VARCHAR" property="taxMethod" />
+    <result column="DEDUCTION_AMOUNT" jdbcType="DECIMAL" property="deductionAmount" />
+    <result column="REVERSE_CIPHER_CODE" jdbcType="VARCHAR" property="reverseCipherCode" />
+    <result column="NOTICE_ID" jdbcType="VARCHAR" property="noticeId" />
+    <result column="INVOICE_ID" jdbcType="VARCHAR" property="invoiceId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="andy.model.FPIvoiceHis">
+    <result column="GOODS_DETAIL" jdbcType="CLOB" property="goodsDetail" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, VERSION, CREATE_TIME, UPDATE_TIME, EXPIRE_TIME, ISSUE_SEQUENCE, QR_CODE_ID, CONSUMER_ID, 
+    STATUS, INVOICE_MATERIAL, INVOICE_TYPE, INVOICE_CODE, INVOICE_NO, CHECK_CODE, DEVICE_NO, 
+    CIPHER_CODE, ISSUE_DATE, MER_ORDER_ID, MER_ORDER_DATE, MERCHANT_ID, TERMINAL_ID, 
+    BUYER_NAME, BUYER_TAX_CODE, BUYER_ADDRESS, BUYER_TELEPHONE, BUYER_BANK, BUYER_ACCOUNT, 
+    SELLER_NAME, SELLER_TAX_CODE, SELLER_ADDRESS, SELLER_TELEPHONE, SELLER_BANK, SELLER_ACCOUNT, 
+    STORE_ID, SERVICE_PROVIDER, SP_DEVICE_ID, REMARK, PAYEE, CHECKER, DRAWER, TOTAL_PRICE_INCLUDING_TAX, 
+    TOTAL_TAX, TOTAL_PRICE, REVERSE_SEQUENCE, REVERSE_DATE, MSG_TYPE, ERR_CODE, ERR_MSG, 
+    NOTIFY_URL, NOTIFY_MOBILE_NO, NOTIFY_EMAIL, SOURCE, SUB_INST, MERCHANT_NAME, REVERSE_INVOICE_CODE, 
+    REVERSE_INVOICE_NO, INVALID_SEQUENCE, INVALID_DATE, INVALID_INVOICE_CODE, INVALID_INVOICE_NO, 
+    INVALID_PERSON, EXTEND1, EXTEND2, TRACE_ID, TOTAL_REVERSED_AMOUNT, REVERSE_CHECK_CODE, 
+    TAX_METHOD, DEDUCTION_AMOUNT, REVERSE_CIPHER_CODE, NOTICE_ID, INVOICE_ID
+  </sql>
+  <sql id="Blob_Column_List">
+    GOODS_DETAIL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FP_INVOICE_HIS
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FP_INVOICE_HIS
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="andy.model.FPIvoiceHis">
+    insert into FP_INVOICE_HIS (ID, VERSION, CREATE_TIME, 
+      UPDATE_TIME, EXPIRE_TIME, ISSUE_SEQUENCE, 
+      QR_CODE_ID, CONSUMER_ID, STATUS, 
+      INVOICE_MATERIAL, INVOICE_TYPE, INVOICE_CODE, 
+      INVOICE_NO, CHECK_CODE, DEVICE_NO, 
+      CIPHER_CODE, ISSUE_DATE, MER_ORDER_ID, 
+      MER_ORDER_DATE, MERCHANT_ID, TERMINAL_ID, 
+      BUYER_NAME, BUYER_TAX_CODE, BUYER_ADDRESS, 
+      BUYER_TELEPHONE, BUYER_BANK, BUYER_ACCOUNT, 
+      SELLER_NAME, SELLER_TAX_CODE, SELLER_ADDRESS, 
+      SELLER_TELEPHONE, SELLER_BANK, SELLER_ACCOUNT, 
+      STORE_ID, SERVICE_PROVIDER, SP_DEVICE_ID, 
+      REMARK, PAYEE, CHECKER, 
+      DRAWER, TOTAL_PRICE_INCLUDING_TAX, TOTAL_TAX, 
+      TOTAL_PRICE, REVERSE_SEQUENCE, REVERSE_DATE, 
+      MSG_TYPE, ERR_CODE, ERR_MSG, 
+      NOTIFY_URL, NOTIFY_MOBILE_NO, NOTIFY_EMAIL, 
+      SOURCE, SUB_INST, MERCHANT_NAME, 
+      REVERSE_INVOICE_CODE, REVERSE_INVOICE_NO, INVALID_SEQUENCE, 
+      INVALID_DATE, INVALID_INVOICE_CODE, INVALID_INVOICE_NO, 
+      INVALID_PERSON, EXTEND1, EXTEND2, 
+      TRACE_ID, TOTAL_REVERSED_AMOUNT, REVERSE_CHECK_CODE, 
+      TAX_METHOD, DEDUCTION_AMOUNT, REVERSE_CIPHER_CODE, 
+      NOTICE_ID, INVOICE_ID, GOODS_DETAIL
+      )
+    values (#{id,jdbcType=VARCHAR}, #{version,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{expireTime,jdbcType=TIMESTAMP}, #{issueSequence,jdbcType=VARCHAR}, 
+      #{qrCodeId,jdbcType=VARCHAR}, #{consumerId,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{invoiceMaterial,jdbcType=VARCHAR}, #{invoiceType,jdbcType=VARCHAR}, #{invoiceCode,jdbcType=VARCHAR}, 
+      #{invoiceNo,jdbcType=VARCHAR}, #{checkCode,jdbcType=VARCHAR}, #{deviceNo,jdbcType=VARCHAR}, 
+      #{cipherCode,jdbcType=VARCHAR}, #{issueDate,jdbcType=TIMESTAMP}, #{merOrderId,jdbcType=VARCHAR}, 
+      #{merOrderDate,jdbcType=VARCHAR}, #{merchantId,jdbcType=VARCHAR}, #{terminalId,jdbcType=VARCHAR}, 
+      #{buyerName,jdbcType=VARCHAR}, #{buyerTaxCode,jdbcType=VARCHAR}, #{buyerAddress,jdbcType=VARCHAR}, 
+      #{buyerTelephone,jdbcType=VARCHAR}, #{buyerBank,jdbcType=VARCHAR}, #{buyerAccount,jdbcType=VARCHAR}, 
+      #{sellerName,jdbcType=VARCHAR}, #{sellerTaxCode,jdbcType=VARCHAR}, #{sellerAddress,jdbcType=VARCHAR}, 
+      #{sellerTelephone,jdbcType=VARCHAR}, #{sellerBank,jdbcType=VARCHAR}, #{sellerAccount,jdbcType=VARCHAR}, 
+      #{storeId,jdbcType=VARCHAR}, #{serviceProvider,jdbcType=VARCHAR}, #{spDeviceId,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{payee,jdbcType=VARCHAR}, #{checker,jdbcType=VARCHAR}, 
+      #{drawer,jdbcType=VARCHAR}, #{totalPriceIncludingTax,jdbcType=DECIMAL}, #{totalTax,jdbcType=DECIMAL}, 
+      #{totalPrice,jdbcType=DECIMAL}, #{reverseSequence,jdbcType=VARCHAR}, #{reverseDate,jdbcType=TIMESTAMP}, 
+      #{msgType,jdbcType=VARCHAR}, #{errCode,jdbcType=VARCHAR}, #{errMsg,jdbcType=VARCHAR}, 
+      #{notifyUrl,jdbcType=VARCHAR}, #{notifyMobileNo,jdbcType=VARCHAR}, #{notifyEmail,jdbcType=VARCHAR}, 
+      #{source,jdbcType=VARCHAR}, #{subInst,jdbcType=VARCHAR}, #{merchantName,jdbcType=VARCHAR}, 
+      #{reverseInvoiceCode,jdbcType=VARCHAR}, #{reverseInvoiceNo,jdbcType=VARCHAR}, #{invalidSequence,jdbcType=VARCHAR}, 
+      #{invalidDate,jdbcType=TIMESTAMP}, #{invalidInvoiceCode,jdbcType=VARCHAR}, #{invalidInvoiceNo,jdbcType=VARCHAR}, 
+      #{invalidPerson,jdbcType=VARCHAR}, #{extend1,jdbcType=VARCHAR}, #{extend2,jdbcType=VARCHAR}, 
+      #{traceId,jdbcType=VARCHAR}, #{totalReversedAmount,jdbcType=DECIMAL}, #{reverseCheckCode,jdbcType=VARCHAR}, 
+      #{taxMethod,jdbcType=VARCHAR}, #{deductionAmount,jdbcType=DECIMAL}, #{reverseCipherCode,jdbcType=VARCHAR}, 
+      #{noticeId,jdbcType=VARCHAR}, #{invoiceId,jdbcType=VARCHAR}, #{goodsDetail,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="andy.model.FPIvoiceHis">
+    insert into FP_INVOICE_HIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="version != null">
+        VERSION,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="expireTime != null">
+        EXPIRE_TIME,
+      </if>
+      <if test="issueSequence != null">
+        ISSUE_SEQUENCE,
+      </if>
+      <if test="qrCodeId != null">
+        QR_CODE_ID,
+      </if>
+      <if test="consumerId != null">
+        CONSUMER_ID,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="invoiceMaterial != null">
+        INVOICE_MATERIAL,
+      </if>
+      <if test="invoiceType != null">
+        INVOICE_TYPE,
+      </if>
+      <if test="invoiceCode != null">
+        INVOICE_CODE,
+      </if>
+      <if test="invoiceNo != null">
+        INVOICE_NO,
+      </if>
+      <if test="checkCode != null">
+        CHECK_CODE,
+      </if>
+      <if test="deviceNo != null">
+        DEVICE_NO,
+      </if>
+      <if test="cipherCode != null">
+        CIPHER_CODE,
+      </if>
+      <if test="issueDate != null">
+        ISSUE_DATE,
+      </if>
+      <if test="merOrderId != null">
+        MER_ORDER_ID,
+      </if>
+      <if test="merOrderDate != null">
+        MER_ORDER_DATE,
+      </if>
+      <if test="merchantId != null">
+        MERCHANT_ID,
+      </if>
+      <if test="terminalId != null">
+        TERMINAL_ID,
+      </if>
+      <if test="buyerName != null">
+        BUYER_NAME,
+      </if>
+      <if test="buyerTaxCode != null">
+        BUYER_TAX_CODE,
+      </if>
+      <if test="buyerAddress != null">
+        BUYER_ADDRESS,
+      </if>
+      <if test="buyerTelephone != null">
+        BUYER_TELEPHONE,
+      </if>
+      <if test="buyerBank != null">
+        BUYER_BANK,
+      </if>
+      <if test="buyerAccount != null">
+        BUYER_ACCOUNT,
+      </if>
+      <if test="sellerName != null">
+        SELLER_NAME,
+      </if>
+      <if test="sellerTaxCode != null">
+        SELLER_TAX_CODE,
+      </if>
+      <if test="sellerAddress != null">
+        SELLER_ADDRESS,
+      </if>
+      <if test="sellerTelephone != null">
+        SELLER_TELEPHONE,
+      </if>
+      <if test="sellerBank != null">
+        SELLER_BANK,
+      </if>
+      <if test="sellerAccount != null">
+        SELLER_ACCOUNT,
+      </if>
+      <if test="storeId != null">
+        STORE_ID,
+      </if>
+      <if test="serviceProvider != null">
+        SERVICE_PROVIDER,
+      </if>
+      <if test="spDeviceId != null">
+        SP_DEVICE_ID,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="payee != null">
+        PAYEE,
+      </if>
+      <if test="checker != null">
+        CHECKER,
+      </if>
+      <if test="drawer != null">
+        DRAWER,
+      </if>
+      <if test="totalPriceIncludingTax != null">
+        TOTAL_PRICE_INCLUDING_TAX,
+      </if>
+      <if test="totalTax != null">
+        TOTAL_TAX,
+      </if>
+      <if test="totalPrice != null">
+        TOTAL_PRICE,
+      </if>
+      <if test="reverseSequence != null">
+        REVERSE_SEQUENCE,
+      </if>
+      <if test="reverseDate != null">
+        REVERSE_DATE,
+      </if>
+      <if test="msgType != null">
+        MSG_TYPE,
+      </if>
+      <if test="errCode != null">
+        ERR_CODE,
+      </if>
+      <if test="errMsg != null">
+        ERR_MSG,
+      </if>
+      <if test="notifyUrl != null">
+        NOTIFY_URL,
+      </if>
+      <if test="notifyMobileNo != null">
+        NOTIFY_MOBILE_NO,
+      </if>
+      <if test="notifyEmail != null">
+        NOTIFY_EMAIL,
+      </if>
+      <if test="source != null">
+        SOURCE,
+      </if>
+      <if test="subInst != null">
+        SUB_INST,
+      </if>
+      <if test="merchantName != null">
+        MERCHANT_NAME,
+      </if>
+      <if test="reverseInvoiceCode != null">
+        REVERSE_INVOICE_CODE,
+      </if>
+      <if test="reverseInvoiceNo != null">
+        REVERSE_INVOICE_NO,
+      </if>
+      <if test="invalidSequence != null">
+        INVALID_SEQUENCE,
+      </if>
+      <if test="invalidDate != null">
+        INVALID_DATE,
+      </if>
+      <if test="invalidInvoiceCode != null">
+        INVALID_INVOICE_CODE,
+      </if>
+      <if test="invalidInvoiceNo != null">
+        INVALID_INVOICE_NO,
+      </if>
+      <if test="invalidPerson != null">
+        INVALID_PERSON,
+      </if>
+      <if test="extend1 != null">
+        EXTEND1,
+      </if>
+      <if test="extend2 != null">
+        EXTEND2,
+      </if>
+      <if test="traceId != null">
+        TRACE_ID,
+      </if>
+      <if test="totalReversedAmount != null">
+        TOTAL_REVERSED_AMOUNT,
+      </if>
+      <if test="reverseCheckCode != null">
+        REVERSE_CHECK_CODE,
+      </if>
+      <if test="taxMethod != null">
+        TAX_METHOD,
+      </if>
+      <if test="deductionAmount != null">
+        DEDUCTION_AMOUNT,
+      </if>
+      <if test="reverseCipherCode != null">
+        REVERSE_CIPHER_CODE,
+      </if>
+      <if test="noticeId != null">
+        NOTICE_ID,
+      </if>
+      <if test="invoiceId != null">
+        INVOICE_ID,
+      </if>
+      <if test="goodsDetail != null">
+        GOODS_DETAIL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expireTime != null">
+        #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issueSequence != null">
+        #{issueSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="qrCodeId != null">
+        #{qrCodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="consumerId != null">
+        #{consumerId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceMaterial != null">
+        #{invoiceMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceType != null">
+        #{invoiceType,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceCode != null">
+        #{invoiceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNo != null">
+        #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="checkCode != null">
+        #{checkCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceNo != null">
+        #{deviceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cipherCode != null">
+        #{cipherCode,jdbcType=VARCHAR},
+      </if>
+      <if test="issueDate != null">
+        #{issueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="merOrderId != null">
+        #{merOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="merOrderDate != null">
+        #{merOrderDate,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        #{merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalId != null">
+        #{terminalId,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerName != null">
+        #{buyerName,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerTaxCode != null">
+        #{buyerTaxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerAddress != null">
+        #{buyerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerTelephone != null">
+        #{buyerTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerBank != null">
+        #{buyerBank,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerAccount != null">
+        #{buyerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerName != null">
+        #{sellerName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerTaxCode != null">
+        #{sellerTaxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerAddress != null">
+        #{sellerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerTelephone != null">
+        #{sellerTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerBank != null">
+        #{sellerBank,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerAccount != null">
+        #{sellerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceProvider != null">
+        #{serviceProvider,jdbcType=VARCHAR},
+      </if>
+      <if test="spDeviceId != null">
+        #{spDeviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="payee != null">
+        #{payee,jdbcType=VARCHAR},
+      </if>
+      <if test="checker != null">
+        #{checker,jdbcType=VARCHAR},
+      </if>
+      <if test="drawer != null">
+        #{drawer,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPriceIncludingTax != null">
+        #{totalPriceIncludingTax,jdbcType=DECIMAL},
+      </if>
+      <if test="totalTax != null">
+        #{totalTax,jdbcType=DECIMAL},
+      </if>
+      <if test="totalPrice != null">
+        #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="reverseSequence != null">
+        #{reverseSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="reverseDate != null">
+        #{reverseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="msgType != null">
+        #{msgType,jdbcType=VARCHAR},
+      </if>
+      <if test="errCode != null">
+        #{errCode,jdbcType=VARCHAR},
+      </if>
+      <if test="errMsg != null">
+        #{errMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyUrl != null">
+        #{notifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyMobileNo != null">
+        #{notifyMobileNo,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyEmail != null">
+        #{notifyEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="subInst != null">
+        #{subInst,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantName != null">
+        #{merchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="reverseInvoiceCode != null">
+        #{reverseInvoiceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reverseInvoiceNo != null">
+        #{reverseInvoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidSequence != null">
+        #{invalidSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidDate != null">
+        #{invalidDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invalidInvoiceCode != null">
+        #{invalidInvoiceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidInvoiceNo != null">
+        #{invalidInvoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidPerson != null">
+        #{invalidPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null">
+        #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null">
+        #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="traceId != null">
+        #{traceId,jdbcType=VARCHAR},
+      </if>
+      <if test="totalReversedAmount != null">
+        #{totalReversedAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="reverseCheckCode != null">
+        #{reverseCheckCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxMethod != null">
+        #{taxMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="deductionAmount != null">
+        #{deductionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="reverseCipherCode != null">
+        #{reverseCipherCode,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeId != null">
+        #{noticeId,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceId != null">
+        #{invoiceId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsDetail != null">
+        #{goodsDetail,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="andy.model.FPIvoiceHis">
+    update FP_INVOICE_HIS
+    <set>
+      <if test="version != null">
+        VERSION = #{version,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expireTime != null">
+        EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issueSequence != null">
+        ISSUE_SEQUENCE = #{issueSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="qrCodeId != null">
+        QR_CODE_ID = #{qrCodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="consumerId != null">
+        CONSUMER_ID = #{consumerId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceMaterial != null">
+        INVOICE_MATERIAL = #{invoiceMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceType != null">
+        INVOICE_TYPE = #{invoiceType,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceCode != null">
+        INVOICE_CODE = #{invoiceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNo != null">
+        INVOICE_NO = #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="checkCode != null">
+        CHECK_CODE = #{checkCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceNo != null">
+        DEVICE_NO = #{deviceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cipherCode != null">
+        CIPHER_CODE = #{cipherCode,jdbcType=VARCHAR},
+      </if>
+      <if test="issueDate != null">
+        ISSUE_DATE = #{issueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="merOrderId != null">
+        MER_ORDER_ID = #{merOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="merOrderDate != null">
+        MER_ORDER_DATE = #{merOrderDate,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        MERCHANT_ID = #{merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalId != null">
+        TERMINAL_ID = #{terminalId,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerName != null">
+        BUYER_NAME = #{buyerName,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerTaxCode != null">
+        BUYER_TAX_CODE = #{buyerTaxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerAddress != null">
+        BUYER_ADDRESS = #{buyerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerTelephone != null">
+        BUYER_TELEPHONE = #{buyerTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerBank != null">
+        BUYER_BANK = #{buyerBank,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerAccount != null">
+        BUYER_ACCOUNT = #{buyerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerName != null">
+        SELLER_NAME = #{sellerName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerTaxCode != null">
+        SELLER_TAX_CODE = #{sellerTaxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerAddress != null">
+        SELLER_ADDRESS = #{sellerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerTelephone != null">
+        SELLER_TELEPHONE = #{sellerTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerBank != null">
+        SELLER_BANK = #{sellerBank,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerAccount != null">
+        SELLER_ACCOUNT = #{sellerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null">
+        STORE_ID = #{storeId,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceProvider != null">
+        SERVICE_PROVIDER = #{serviceProvider,jdbcType=VARCHAR},
+      </if>
+      <if test="spDeviceId != null">
+        SP_DEVICE_ID = #{spDeviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="payee != null">
+        PAYEE = #{payee,jdbcType=VARCHAR},
+      </if>
+      <if test="checker != null">
+        CHECKER = #{checker,jdbcType=VARCHAR},
+      </if>
+      <if test="drawer != null">
+        DRAWER = #{drawer,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPriceIncludingTax != null">
+        TOTAL_PRICE_INCLUDING_TAX = #{totalPriceIncludingTax,jdbcType=DECIMAL},
+      </if>
+      <if test="totalTax != null">
+        TOTAL_TAX = #{totalTax,jdbcType=DECIMAL},
+      </if>
+      <if test="totalPrice != null">
+        TOTAL_PRICE = #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="reverseSequence != null">
+        REVERSE_SEQUENCE = #{reverseSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="reverseDate != null">
+        REVERSE_DATE = #{reverseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="msgType != null">
+        MSG_TYPE = #{msgType,jdbcType=VARCHAR},
+      </if>
+      <if test="errCode != null">
+        ERR_CODE = #{errCode,jdbcType=VARCHAR},
+      </if>
+      <if test="errMsg != null">
+        ERR_MSG = #{errMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyUrl != null">
+        NOTIFY_URL = #{notifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyMobileNo != null">
+        NOTIFY_MOBILE_NO = #{notifyMobileNo,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyEmail != null">
+        NOTIFY_EMAIL = #{notifyEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        SOURCE = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="subInst != null">
+        SUB_INST = #{subInst,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantName != null">
+        MERCHANT_NAME = #{merchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="reverseInvoiceCode != null">
+        REVERSE_INVOICE_CODE = #{reverseInvoiceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reverseInvoiceNo != null">
+        REVERSE_INVOICE_NO = #{reverseInvoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidSequence != null">
+        INVALID_SEQUENCE = #{invalidSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidDate != null">
+        INVALID_DATE = #{invalidDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invalidInvoiceCode != null">
+        INVALID_INVOICE_CODE = #{invalidInvoiceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidInvoiceNo != null">
+        INVALID_INVOICE_NO = #{invalidInvoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidPerson != null">
+        INVALID_PERSON = #{invalidPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null">
+        EXTEND1 = #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null">
+        EXTEND2 = #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="traceId != null">
+        TRACE_ID = #{traceId,jdbcType=VARCHAR},
+      </if>
+      <if test="totalReversedAmount != null">
+        TOTAL_REVERSED_AMOUNT = #{totalReversedAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="reverseCheckCode != null">
+        REVERSE_CHECK_CODE = #{reverseCheckCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxMethod != null">
+        TAX_METHOD = #{taxMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="deductionAmount != null">
+        DEDUCTION_AMOUNT = #{deductionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="reverseCipherCode != null">
+        REVERSE_CIPHER_CODE = #{reverseCipherCode,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeId != null">
+        NOTICE_ID = #{noticeId,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceId != null">
+        INVOICE_ID = #{invoiceId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsDetail != null">
+        GOODS_DETAIL = #{goodsDetail,jdbcType=CLOB},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="andy.model.FPIvoiceHis">
+    update FP_INVOICE_HIS
+    set VERSION = #{version,jdbcType=DECIMAL},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP},
+      ISSUE_SEQUENCE = #{issueSequence,jdbcType=VARCHAR},
+      QR_CODE_ID = #{qrCodeId,jdbcType=VARCHAR},
+      CONSUMER_ID = #{consumerId,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      INVOICE_MATERIAL = #{invoiceMaterial,jdbcType=VARCHAR},
+      INVOICE_TYPE = #{invoiceType,jdbcType=VARCHAR},
+      INVOICE_CODE = #{invoiceCode,jdbcType=VARCHAR},
+      INVOICE_NO = #{invoiceNo,jdbcType=VARCHAR},
+      CHECK_CODE = #{checkCode,jdbcType=VARCHAR},
+      DEVICE_NO = #{deviceNo,jdbcType=VARCHAR},
+      CIPHER_CODE = #{cipherCode,jdbcType=VARCHAR},
+      ISSUE_DATE = #{issueDate,jdbcType=TIMESTAMP},
+      MER_ORDER_ID = #{merOrderId,jdbcType=VARCHAR},
+      MER_ORDER_DATE = #{merOrderDate,jdbcType=VARCHAR},
+      MERCHANT_ID = #{merchantId,jdbcType=VARCHAR},
+      TERMINAL_ID = #{terminalId,jdbcType=VARCHAR},
+      BUYER_NAME = #{buyerName,jdbcType=VARCHAR},
+      BUYER_TAX_CODE = #{buyerTaxCode,jdbcType=VARCHAR},
+      BUYER_ADDRESS = #{buyerAddress,jdbcType=VARCHAR},
+      BUYER_TELEPHONE = #{buyerTelephone,jdbcType=VARCHAR},
+      BUYER_BANK = #{buyerBank,jdbcType=VARCHAR},
+      BUYER_ACCOUNT = #{buyerAccount,jdbcType=VARCHAR},
+      SELLER_NAME = #{sellerName,jdbcType=VARCHAR},
+      SELLER_TAX_CODE = #{sellerTaxCode,jdbcType=VARCHAR},
+      SELLER_ADDRESS = #{sellerAddress,jdbcType=VARCHAR},
+      SELLER_TELEPHONE = #{sellerTelephone,jdbcType=VARCHAR},
+      SELLER_BANK = #{sellerBank,jdbcType=VARCHAR},
+      SELLER_ACCOUNT = #{sellerAccount,jdbcType=VARCHAR},
+      STORE_ID = #{storeId,jdbcType=VARCHAR},
+      SERVICE_PROVIDER = #{serviceProvider,jdbcType=VARCHAR},
+      SP_DEVICE_ID = #{spDeviceId,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      PAYEE = #{payee,jdbcType=VARCHAR},
+      CHECKER = #{checker,jdbcType=VARCHAR},
+      DRAWER = #{drawer,jdbcType=VARCHAR},
+      TOTAL_PRICE_INCLUDING_TAX = #{totalPriceIncludingTax,jdbcType=DECIMAL},
+      TOTAL_TAX = #{totalTax,jdbcType=DECIMAL},
+      TOTAL_PRICE = #{totalPrice,jdbcType=DECIMAL},
+      REVERSE_SEQUENCE = #{reverseSequence,jdbcType=VARCHAR},
+      REVERSE_DATE = #{reverseDate,jdbcType=TIMESTAMP},
+      MSG_TYPE = #{msgType,jdbcType=VARCHAR},
+      ERR_CODE = #{errCode,jdbcType=VARCHAR},
+      ERR_MSG = #{errMsg,jdbcType=VARCHAR},
+      NOTIFY_URL = #{notifyUrl,jdbcType=VARCHAR},
+      NOTIFY_MOBILE_NO = #{notifyMobileNo,jdbcType=VARCHAR},
+      NOTIFY_EMAIL = #{notifyEmail,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=VARCHAR},
+      SUB_INST = #{subInst,jdbcType=VARCHAR},
+      MERCHANT_NAME = #{merchantName,jdbcType=VARCHAR},
+      REVERSE_INVOICE_CODE = #{reverseInvoiceCode,jdbcType=VARCHAR},
+      REVERSE_INVOICE_NO = #{reverseInvoiceNo,jdbcType=VARCHAR},
+      INVALID_SEQUENCE = #{invalidSequence,jdbcType=VARCHAR},
+      INVALID_DATE = #{invalidDate,jdbcType=TIMESTAMP},
+      INVALID_INVOICE_CODE = #{invalidInvoiceCode,jdbcType=VARCHAR},
+      INVALID_INVOICE_NO = #{invalidInvoiceNo,jdbcType=VARCHAR},
+      INVALID_PERSON = #{invalidPerson,jdbcType=VARCHAR},
+      EXTEND1 = #{extend1,jdbcType=VARCHAR},
+      EXTEND2 = #{extend2,jdbcType=VARCHAR},
+      TRACE_ID = #{traceId,jdbcType=VARCHAR},
+      TOTAL_REVERSED_AMOUNT = #{totalReversedAmount,jdbcType=DECIMAL},
+      REVERSE_CHECK_CODE = #{reverseCheckCode,jdbcType=VARCHAR},
+      TAX_METHOD = #{taxMethod,jdbcType=VARCHAR},
+      DEDUCTION_AMOUNT = #{deductionAmount,jdbcType=DECIMAL},
+      REVERSE_CIPHER_CODE = #{reverseCipherCode,jdbcType=VARCHAR},
+      NOTICE_ID = #{noticeId,jdbcType=VARCHAR},
+      INVOICE_ID = #{invoiceId,jdbcType=VARCHAR},
+      GOODS_DETAIL = #{goodsDetail,jdbcType=CLOB}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="andy.model.FPIvoiceHis">
+    update FP_INVOICE_HIS
+    set VERSION = #{version,jdbcType=DECIMAL},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP},
+      ISSUE_SEQUENCE = #{issueSequence,jdbcType=VARCHAR},
+      QR_CODE_ID = #{qrCodeId,jdbcType=VARCHAR},
+      CONSUMER_ID = #{consumerId,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      INVOICE_MATERIAL = #{invoiceMaterial,jdbcType=VARCHAR},
+      INVOICE_TYPE = #{invoiceType,jdbcType=VARCHAR},
+      INVOICE_CODE = #{invoiceCode,jdbcType=VARCHAR},
+      INVOICE_NO = #{invoiceNo,jdbcType=VARCHAR},
+      CHECK_CODE = #{checkCode,jdbcType=VARCHAR},
+      DEVICE_NO = #{deviceNo,jdbcType=VARCHAR},
+      CIPHER_CODE = #{cipherCode,jdbcType=VARCHAR},
+      ISSUE_DATE = #{issueDate,jdbcType=TIMESTAMP},
+      MER_ORDER_ID = #{merOrderId,jdbcType=VARCHAR},
+      MER_ORDER_DATE = #{merOrderDate,jdbcType=VARCHAR},
+      MERCHANT_ID = #{merchantId,jdbcType=VARCHAR},
+      TERMINAL_ID = #{terminalId,jdbcType=VARCHAR},
+      BUYER_NAME = #{buyerName,jdbcType=VARCHAR},
+      BUYER_TAX_CODE = #{buyerTaxCode,jdbcType=VARCHAR},
+      BUYER_ADDRESS = #{buyerAddress,jdbcType=VARCHAR},
+      BUYER_TELEPHONE = #{buyerTelephone,jdbcType=VARCHAR},
+      BUYER_BANK = #{buyerBank,jdbcType=VARCHAR},
+      BUYER_ACCOUNT = #{buyerAccount,jdbcType=VARCHAR},
+      SELLER_NAME = #{sellerName,jdbcType=VARCHAR},
+      SELLER_TAX_CODE = #{sellerTaxCode,jdbcType=VARCHAR},
+      SELLER_ADDRESS = #{sellerAddress,jdbcType=VARCHAR},
+      SELLER_TELEPHONE = #{sellerTelephone,jdbcType=VARCHAR},
+      SELLER_BANK = #{sellerBank,jdbcType=VARCHAR},
+      SELLER_ACCOUNT = #{sellerAccount,jdbcType=VARCHAR},
+      STORE_ID = #{storeId,jdbcType=VARCHAR},
+      SERVICE_PROVIDER = #{serviceProvider,jdbcType=VARCHAR},
+      SP_DEVICE_ID = #{spDeviceId,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      PAYEE = #{payee,jdbcType=VARCHAR},
+      CHECKER = #{checker,jdbcType=VARCHAR},
+      DRAWER = #{drawer,jdbcType=VARCHAR},
+      TOTAL_PRICE_INCLUDING_TAX = #{totalPriceIncludingTax,jdbcType=DECIMAL},
+      TOTAL_TAX = #{totalTax,jdbcType=DECIMAL},
+      TOTAL_PRICE = #{totalPrice,jdbcType=DECIMAL},
+      REVERSE_SEQUENCE = #{reverseSequence,jdbcType=VARCHAR},
+      REVERSE_DATE = #{reverseDate,jdbcType=TIMESTAMP},
+      MSG_TYPE = #{msgType,jdbcType=VARCHAR},
+      ERR_CODE = #{errCode,jdbcType=VARCHAR},
+      ERR_MSG = #{errMsg,jdbcType=VARCHAR},
+      NOTIFY_URL = #{notifyUrl,jdbcType=VARCHAR},
+      NOTIFY_MOBILE_NO = #{notifyMobileNo,jdbcType=VARCHAR},
+      NOTIFY_EMAIL = #{notifyEmail,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=VARCHAR},
+      SUB_INST = #{subInst,jdbcType=VARCHAR},
+      MERCHANT_NAME = #{merchantName,jdbcType=VARCHAR},
+      REVERSE_INVOICE_CODE = #{reverseInvoiceCode,jdbcType=VARCHAR},
+      REVERSE_INVOICE_NO = #{reverseInvoiceNo,jdbcType=VARCHAR},
+      INVALID_SEQUENCE = #{invalidSequence,jdbcType=VARCHAR},
+      INVALID_DATE = #{invalidDate,jdbcType=TIMESTAMP},
+      INVALID_INVOICE_CODE = #{invalidInvoiceCode,jdbcType=VARCHAR},
+      INVALID_INVOICE_NO = #{invalidInvoiceNo,jdbcType=VARCHAR},
+      INVALID_PERSON = #{invalidPerson,jdbcType=VARCHAR},
+      EXTEND1 = #{extend1,jdbcType=VARCHAR},
+      EXTEND2 = #{extend2,jdbcType=VARCHAR},
+      TRACE_ID = #{traceId,jdbcType=VARCHAR},
+      TOTAL_REVERSED_AMOUNT = #{totalReversedAmount,jdbcType=DECIMAL},
+      REVERSE_CHECK_CODE = #{reverseCheckCode,jdbcType=VARCHAR},
+      TAX_METHOD = #{taxMethod,jdbcType=VARCHAR},
+      DEDUCTION_AMOUNT = #{deductionAmount,jdbcType=DECIMAL},
+      REVERSE_CIPHER_CODE = #{reverseCipherCode,jdbcType=VARCHAR},
+      NOTICE_ID = #{noticeId,jdbcType=VARCHAR},
+      INVOICE_ID = #{invoiceId,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="andy.model.FPIvoiceHis">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="VERSION" jdbcType="DECIMAL" property="version" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="EXPIRE_TIME" jdbcType="TIMESTAMP" property="expireTime" />
+    <result column="ISSUE_SEQUENCE" jdbcType="VARCHAR" property="issueSequence" />
+    <result column="QR_CODE_ID" jdbcType="VARCHAR" property="qrCodeId" />
+    <result column="CONSUMER_ID" jdbcType="VARCHAR" property="consumerId" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="INVOICE_MATERIAL" jdbcType="VARCHAR" property="invoiceMaterial" />
+    <result column="INVOICE_TYPE" jdbcType="VARCHAR" property="invoiceType" />
+    <result column="INVOICE_CODE" jdbcType="VARCHAR" property="invoiceCode" />
+    <result column="INVOICE_NO" jdbcType="VARCHAR" property="invoiceNo" />
+    <result column="CHECK_CODE" jdbcType="VARCHAR" property="checkCode" />
+    <result column="DEVICE_NO" jdbcType="VARCHAR" property="deviceNo" />
+    <result column="CIPHER_CODE" jdbcType="VARCHAR" property="cipherCode" />
+    <result column="ISSUE_DATE" jdbcType="TIMESTAMP" property="issueDate" />
+    <result column="MER_ORDER_ID" jdbcType="VARCHAR" property="merOrderId" />
+    <result column="MER_ORDER_DATE" jdbcType="VARCHAR" property="merOrderDate" />
+    <result column="MERCHANT_ID" jdbcType="VARCHAR" property="merchantId" />
+    <result column="TERMINAL_ID" jdbcType="VARCHAR" property="terminalId" />
+    <result column="BUYER_NAME" jdbcType="VARCHAR" property="buyerName" />
+    <result column="BUYER_TAX_CODE" jdbcType="VARCHAR" property="buyerTaxCode" />
+    <result column="BUYER_ADDRESS" jdbcType="VARCHAR" property="buyerAddress" />
+    <result column="BUYER_TELEPHONE" jdbcType="VARCHAR" property="buyerTelephone" />
+    <result column="BUYER_BANK" jdbcType="VARCHAR" property="buyerBank" />
+    <result column="BUYER_ACCOUNT" jdbcType="VARCHAR" property="buyerAccount" />
+    <result column="SELLER_NAME" jdbcType="VARCHAR" property="sellerName" />
+    <result column="SELLER_TAX_CODE" jdbcType="VARCHAR" property="sellerTaxCode" />
+    <result column="SELLER_ADDRESS" jdbcType="VARCHAR" property="sellerAddress" />
+    <result column="SELLER_TELEPHONE" jdbcType="VARCHAR" property="sellerTelephone" />
+    <result column="SELLER_BANK" jdbcType="VARCHAR" property="sellerBank" />
+    <result column="SELLER_ACCOUNT" jdbcType="VARCHAR" property="sellerAccount" />
+    <result column="STORE_ID" jdbcType="VARCHAR" property="storeId" />
+    <result column="SERVICE_PROVIDER" jdbcType="VARCHAR" property="serviceProvider" />
+    <result column="SP_DEVICE_ID" jdbcType="VARCHAR" property="spDeviceId" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="PAYEE" jdbcType="VARCHAR" property="payee" />
+    <result column="CHECKER" jdbcType="VARCHAR" property="checker" />
+    <result column="DRAWER" jdbcType="VARCHAR" property="drawer" />
+    <result column="TOTAL_PRICE_INCLUDING_TAX" jdbcType="DECIMAL" property="totalPriceIncludingTax" />
+    <result column="TOTAL_TAX" jdbcType="DECIMAL" property="totalTax" />
+    <result column="TOTAL_PRICE" jdbcType="DECIMAL" property="totalPrice" />
+    <result column="REVERSE_SEQUENCE" jdbcType="VARCHAR" property="reverseSequence" />
+    <result column="REVERSE_DATE" jdbcType="TIMESTAMP" property="reverseDate" />
+    <result column="MSG_TYPE" jdbcType="VARCHAR" property="msgType" />
+    <result column="ERR_CODE" jdbcType="VARCHAR" property="errCode" />
+    <result column="ERR_MSG" jdbcType="VARCHAR" property="errMsg" />
+    <result column="NOTIFY_URL" jdbcType="VARCHAR" property="notifyUrl" />
+    <result column="NOTIFY_MOBILE_NO" jdbcType="VARCHAR" property="notifyMobileNo" />
+    <result column="NOTIFY_EMAIL" jdbcType="VARCHAR" property="notifyEmail" />
+    <result column="SOURCE" jdbcType="VARCHAR" property="source" />
+    <result column="SUB_INST" jdbcType="VARCHAR" property="subInst" />
+    <result column="MERCHANT_NAME" jdbcType="VARCHAR" property="merchantName" />
+    <result column="REVERSE_INVOICE_CODE" jdbcType="VARCHAR" property="reverseInvoiceCode" />
+    <result column="REVERSE_INVOICE_NO" jdbcType="VARCHAR" property="reverseInvoiceNo" />
+    <result column="INVALID_SEQUENCE" jdbcType="VARCHAR" property="invalidSequence" />
+    <result column="INVALID_DATE" jdbcType="TIMESTAMP" property="invalidDate" />
+    <result column="INVALID_INVOICE_CODE" jdbcType="VARCHAR" property="invalidInvoiceCode" />
+    <result column="INVALID_INVOICE_NO" jdbcType="VARCHAR" property="invalidInvoiceNo" />
+    <result column="INVALID_PERSON" jdbcType="VARCHAR" property="invalidPerson" />
+    <result column="EXTEND1" jdbcType="VARCHAR" property="extend1" />
+    <result column="EXTEND2" jdbcType="VARCHAR" property="extend2" />
+    <result column="TRACE_ID" jdbcType="VARCHAR" property="traceId" />
+    <result column="TOTAL_REVERSED_AMOUNT" jdbcType="DECIMAL" property="totalReversedAmount" />
+    <result column="REVERSE_CHECK_CODE" jdbcType="VARCHAR" property="reverseCheckCode" />
+    <result column="TAX_METHOD" jdbcType="VARCHAR" property="taxMethod" />
+    <result column="DEDUCTION_AMOUNT" jdbcType="DECIMAL" property="deductionAmount" />
+    <result column="REVERSE_CIPHER_CODE" jdbcType="VARCHAR" property="reverseCipherCode" />
+    <result column="NOTICE_ID" jdbcType="VARCHAR" property="noticeId" />
+    <result column="INVOICE_ID" jdbcType="VARCHAR" property="invoiceId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="andy.model.FPIvoiceHis">
+    <result column="GOODS_DETAIL" jdbcType="CLOB" property="goodsDetail" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, VERSION, CREATE_TIME, UPDATE_TIME, EXPIRE_TIME, ISSUE_SEQUENCE, QR_CODE_ID, CONSUMER_ID, 
+    STATUS, INVOICE_MATERIAL, INVOICE_TYPE, INVOICE_CODE, INVOICE_NO, CHECK_CODE, DEVICE_NO, 
+    CIPHER_CODE, ISSUE_DATE, MER_ORDER_ID, MER_ORDER_DATE, MERCHANT_ID, TERMINAL_ID, 
+    BUYER_NAME, BUYER_TAX_CODE, BUYER_ADDRESS, BUYER_TELEPHONE, BUYER_BANK, BUYER_ACCOUNT, 
+    SELLER_NAME, SELLER_TAX_CODE, SELLER_ADDRESS, SELLER_TELEPHONE, SELLER_BANK, SELLER_ACCOUNT, 
+    STORE_ID, SERVICE_PROVIDER, SP_DEVICE_ID, REMARK, PAYEE, CHECKER, DRAWER, TOTAL_PRICE_INCLUDING_TAX, 
+    TOTAL_TAX, TOTAL_PRICE, REVERSE_SEQUENCE, REVERSE_DATE, MSG_TYPE, ERR_CODE, ERR_MSG, 
+    NOTIFY_URL, NOTIFY_MOBILE_NO, NOTIFY_EMAIL, SOURCE, SUB_INST, MERCHANT_NAME, REVERSE_INVOICE_CODE, 
+    REVERSE_INVOICE_NO, INVALID_SEQUENCE, INVALID_DATE, INVALID_INVOICE_CODE, INVALID_INVOICE_NO, 
+    INVALID_PERSON, EXTEND1, EXTEND2, TRACE_ID, TOTAL_REVERSED_AMOUNT, REVERSE_CHECK_CODE, 
+    TAX_METHOD, DEDUCTION_AMOUNT, REVERSE_CIPHER_CODE, NOTICE_ID, INVOICE_ID
+  </sql>
+  <sql id="Blob_Column_List">
+    GOODS_DETAIL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FP_INVOICE_HIS
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FP_INVOICE_HIS
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="andy.model.FPIvoiceHis">
+    insert into FP_INVOICE_HIS (ID, VERSION, CREATE_TIME, 
+      UPDATE_TIME, EXPIRE_TIME, ISSUE_SEQUENCE, 
+      QR_CODE_ID, CONSUMER_ID, STATUS, 
+      INVOICE_MATERIAL, INVOICE_TYPE, INVOICE_CODE, 
+      INVOICE_NO, CHECK_CODE, DEVICE_NO, 
+      CIPHER_CODE, ISSUE_DATE, MER_ORDER_ID, 
+      MER_ORDER_DATE, MERCHANT_ID, TERMINAL_ID, 
+      BUYER_NAME, BUYER_TAX_CODE, BUYER_ADDRESS, 
+      BUYER_TELEPHONE, BUYER_BANK, BUYER_ACCOUNT, 
+      SELLER_NAME, SELLER_TAX_CODE, SELLER_ADDRESS, 
+      SELLER_TELEPHONE, SELLER_BANK, SELLER_ACCOUNT, 
+      STORE_ID, SERVICE_PROVIDER, SP_DEVICE_ID, 
+      REMARK, PAYEE, CHECKER, 
+      DRAWER, TOTAL_PRICE_INCLUDING_TAX, TOTAL_TAX, 
+      TOTAL_PRICE, REVERSE_SEQUENCE, REVERSE_DATE, 
+      MSG_TYPE, ERR_CODE, ERR_MSG, 
+      NOTIFY_URL, NOTIFY_MOBILE_NO, NOTIFY_EMAIL, 
+      SOURCE, SUB_INST, MERCHANT_NAME, 
+      REVERSE_INVOICE_CODE, REVERSE_INVOICE_NO, INVALID_SEQUENCE, 
+      INVALID_DATE, INVALID_INVOICE_CODE, INVALID_INVOICE_NO, 
+      INVALID_PERSON, EXTEND1, EXTEND2, 
+      TRACE_ID, TOTAL_REVERSED_AMOUNT, REVERSE_CHECK_CODE, 
+      TAX_METHOD, DEDUCTION_AMOUNT, REVERSE_CIPHER_CODE, 
+      NOTICE_ID, INVOICE_ID, GOODS_DETAIL
+      )
+    values (#{id,jdbcType=VARCHAR}, #{version,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{expireTime,jdbcType=TIMESTAMP}, #{issueSequence,jdbcType=VARCHAR}, 
+      #{qrCodeId,jdbcType=VARCHAR}, #{consumerId,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{invoiceMaterial,jdbcType=VARCHAR}, #{invoiceType,jdbcType=VARCHAR}, #{invoiceCode,jdbcType=VARCHAR}, 
+      #{invoiceNo,jdbcType=VARCHAR}, #{checkCode,jdbcType=VARCHAR}, #{deviceNo,jdbcType=VARCHAR}, 
+      #{cipherCode,jdbcType=VARCHAR}, #{issueDate,jdbcType=TIMESTAMP}, #{merOrderId,jdbcType=VARCHAR}, 
+      #{merOrderDate,jdbcType=VARCHAR}, #{merchantId,jdbcType=VARCHAR}, #{terminalId,jdbcType=VARCHAR}, 
+      #{buyerName,jdbcType=VARCHAR}, #{buyerTaxCode,jdbcType=VARCHAR}, #{buyerAddress,jdbcType=VARCHAR}, 
+      #{buyerTelephone,jdbcType=VARCHAR}, #{buyerBank,jdbcType=VARCHAR}, #{buyerAccount,jdbcType=VARCHAR}, 
+      #{sellerName,jdbcType=VARCHAR}, #{sellerTaxCode,jdbcType=VARCHAR}, #{sellerAddress,jdbcType=VARCHAR}, 
+      #{sellerTelephone,jdbcType=VARCHAR}, #{sellerBank,jdbcType=VARCHAR}, #{sellerAccount,jdbcType=VARCHAR}, 
+      #{storeId,jdbcType=VARCHAR}, #{serviceProvider,jdbcType=VARCHAR}, #{spDeviceId,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{payee,jdbcType=VARCHAR}, #{checker,jdbcType=VARCHAR}, 
+      #{drawer,jdbcType=VARCHAR}, #{totalPriceIncludingTax,jdbcType=DECIMAL}, #{totalTax,jdbcType=DECIMAL}, 
+      #{totalPrice,jdbcType=DECIMAL}, #{reverseSequence,jdbcType=VARCHAR}, #{reverseDate,jdbcType=TIMESTAMP}, 
+      #{msgType,jdbcType=VARCHAR}, #{errCode,jdbcType=VARCHAR}, #{errMsg,jdbcType=VARCHAR}, 
+      #{notifyUrl,jdbcType=VARCHAR}, #{notifyMobileNo,jdbcType=VARCHAR}, #{notifyEmail,jdbcType=VARCHAR}, 
+      #{source,jdbcType=VARCHAR}, #{subInst,jdbcType=VARCHAR}, #{merchantName,jdbcType=VARCHAR}, 
+      #{reverseInvoiceCode,jdbcType=VARCHAR}, #{reverseInvoiceNo,jdbcType=VARCHAR}, #{invalidSequence,jdbcType=VARCHAR}, 
+      #{invalidDate,jdbcType=TIMESTAMP}, #{invalidInvoiceCode,jdbcType=VARCHAR}, #{invalidInvoiceNo,jdbcType=VARCHAR}, 
+      #{invalidPerson,jdbcType=VARCHAR}, #{extend1,jdbcType=VARCHAR}, #{extend2,jdbcType=VARCHAR}, 
+      #{traceId,jdbcType=VARCHAR}, #{totalReversedAmount,jdbcType=DECIMAL}, #{reverseCheckCode,jdbcType=VARCHAR}, 
+      #{taxMethod,jdbcType=VARCHAR}, #{deductionAmount,jdbcType=DECIMAL}, #{reverseCipherCode,jdbcType=VARCHAR}, 
+      #{noticeId,jdbcType=VARCHAR}, #{invoiceId,jdbcType=VARCHAR}, #{goodsDetail,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="andy.model.FPIvoiceHis">
+    insert into FP_INVOICE_HIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="version != null">
+        VERSION,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="expireTime != null">
+        EXPIRE_TIME,
+      </if>
+      <if test="issueSequence != null">
+        ISSUE_SEQUENCE,
+      </if>
+      <if test="qrCodeId != null">
+        QR_CODE_ID,
+      </if>
+      <if test="consumerId != null">
+        CONSUMER_ID,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="invoiceMaterial != null">
+        INVOICE_MATERIAL,
+      </if>
+      <if test="invoiceType != null">
+        INVOICE_TYPE,
+      </if>
+      <if test="invoiceCode != null">
+        INVOICE_CODE,
+      </if>
+      <if test="invoiceNo != null">
+        INVOICE_NO,
+      </if>
+      <if test="checkCode != null">
+        CHECK_CODE,
+      </if>
+      <if test="deviceNo != null">
+        DEVICE_NO,
+      </if>
+      <if test="cipherCode != null">
+        CIPHER_CODE,
+      </if>
+      <if test="issueDate != null">
+        ISSUE_DATE,
+      </if>
+      <if test="merOrderId != null">
+        MER_ORDER_ID,
+      </if>
+      <if test="merOrderDate != null">
+        MER_ORDER_DATE,
+      </if>
+      <if test="merchantId != null">
+        MERCHANT_ID,
+      </if>
+      <if test="terminalId != null">
+        TERMINAL_ID,
+      </if>
+      <if test="buyerName != null">
+        BUYER_NAME,
+      </if>
+      <if test="buyerTaxCode != null">
+        BUYER_TAX_CODE,
+      </if>
+      <if test="buyerAddress != null">
+        BUYER_ADDRESS,
+      </if>
+      <if test="buyerTelephone != null">
+        BUYER_TELEPHONE,
+      </if>
+      <if test="buyerBank != null">
+        BUYER_BANK,
+      </if>
+      <if test="buyerAccount != null">
+        BUYER_ACCOUNT,
+      </if>
+      <if test="sellerName != null">
+        SELLER_NAME,
+      </if>
+      <if test="sellerTaxCode != null">
+        SELLER_TAX_CODE,
+      </if>
+      <if test="sellerAddress != null">
+        SELLER_ADDRESS,
+      </if>
+      <if test="sellerTelephone != null">
+        SELLER_TELEPHONE,
+      </if>
+      <if test="sellerBank != null">
+        SELLER_BANK,
+      </if>
+      <if test="sellerAccount != null">
+        SELLER_ACCOUNT,
+      </if>
+      <if test="storeId != null">
+        STORE_ID,
+      </if>
+      <if test="serviceProvider != null">
+        SERVICE_PROVIDER,
+      </if>
+      <if test="spDeviceId != null">
+        SP_DEVICE_ID,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="payee != null">
+        PAYEE,
+      </if>
+      <if test="checker != null">
+        CHECKER,
+      </if>
+      <if test="drawer != null">
+        DRAWER,
+      </if>
+      <if test="totalPriceIncludingTax != null">
+        TOTAL_PRICE_INCLUDING_TAX,
+      </if>
+      <if test="totalTax != null">
+        TOTAL_TAX,
+      </if>
+      <if test="totalPrice != null">
+        TOTAL_PRICE,
+      </if>
+      <if test="reverseSequence != null">
+        REVERSE_SEQUENCE,
+      </if>
+      <if test="reverseDate != null">
+        REVERSE_DATE,
+      </if>
+      <if test="msgType != null">
+        MSG_TYPE,
+      </if>
+      <if test="errCode != null">
+        ERR_CODE,
+      </if>
+      <if test="errMsg != null">
+        ERR_MSG,
+      </if>
+      <if test="notifyUrl != null">
+        NOTIFY_URL,
+      </if>
+      <if test="notifyMobileNo != null">
+        NOTIFY_MOBILE_NO,
+      </if>
+      <if test="notifyEmail != null">
+        NOTIFY_EMAIL,
+      </if>
+      <if test="source != null">
+        SOURCE,
+      </if>
+      <if test="subInst != null">
+        SUB_INST,
+      </if>
+      <if test="merchantName != null">
+        MERCHANT_NAME,
+      </if>
+      <if test="reverseInvoiceCode != null">
+        REVERSE_INVOICE_CODE,
+      </if>
+      <if test="reverseInvoiceNo != null">
+        REVERSE_INVOICE_NO,
+      </if>
+      <if test="invalidSequence != null">
+        INVALID_SEQUENCE,
+      </if>
+      <if test="invalidDate != null">
+        INVALID_DATE,
+      </if>
+      <if test="invalidInvoiceCode != null">
+        INVALID_INVOICE_CODE,
+      </if>
+      <if test="invalidInvoiceNo != null">
+        INVALID_INVOICE_NO,
+      </if>
+      <if test="invalidPerson != null">
+        INVALID_PERSON,
+      </if>
+      <if test="extend1 != null">
+        EXTEND1,
+      </if>
+      <if test="extend2 != null">
+        EXTEND2,
+      </if>
+      <if test="traceId != null">
+        TRACE_ID,
+      </if>
+      <if test="totalReversedAmount != null">
+        TOTAL_REVERSED_AMOUNT,
+      </if>
+      <if test="reverseCheckCode != null">
+        REVERSE_CHECK_CODE,
+      </if>
+      <if test="taxMethod != null">
+        TAX_METHOD,
+      </if>
+      <if test="deductionAmount != null">
+        DEDUCTION_AMOUNT,
+      </if>
+      <if test="reverseCipherCode != null">
+        REVERSE_CIPHER_CODE,
+      </if>
+      <if test="noticeId != null">
+        NOTICE_ID,
+      </if>
+      <if test="invoiceId != null">
+        INVOICE_ID,
+      </if>
+      <if test="goodsDetail != null">
+        GOODS_DETAIL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expireTime != null">
+        #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issueSequence != null">
+        #{issueSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="qrCodeId != null">
+        #{qrCodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="consumerId != null">
+        #{consumerId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceMaterial != null">
+        #{invoiceMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceType != null">
+        #{invoiceType,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceCode != null">
+        #{invoiceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNo != null">
+        #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="checkCode != null">
+        #{checkCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceNo != null">
+        #{deviceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cipherCode != null">
+        #{cipherCode,jdbcType=VARCHAR},
+      </if>
+      <if test="issueDate != null">
+        #{issueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="merOrderId != null">
+        #{merOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="merOrderDate != null">
+        #{merOrderDate,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        #{merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalId != null">
+        #{terminalId,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerName != null">
+        #{buyerName,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerTaxCode != null">
+        #{buyerTaxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerAddress != null">
+        #{buyerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerTelephone != null">
+        #{buyerTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerBank != null">
+        #{buyerBank,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerAccount != null">
+        #{buyerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerName != null">
+        #{sellerName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerTaxCode != null">
+        #{sellerTaxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerAddress != null">
+        #{sellerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerTelephone != null">
+        #{sellerTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerBank != null">
+        #{sellerBank,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerAccount != null">
+        #{sellerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceProvider != null">
+        #{serviceProvider,jdbcType=VARCHAR},
+      </if>
+      <if test="spDeviceId != null">
+        #{spDeviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="payee != null">
+        #{payee,jdbcType=VARCHAR},
+      </if>
+      <if test="checker != null">
+        #{checker,jdbcType=VARCHAR},
+      </if>
+      <if test="drawer != null">
+        #{drawer,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPriceIncludingTax != null">
+        #{totalPriceIncludingTax,jdbcType=DECIMAL},
+      </if>
+      <if test="totalTax != null">
+        #{totalTax,jdbcType=DECIMAL},
+      </if>
+      <if test="totalPrice != null">
+        #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="reverseSequence != null">
+        #{reverseSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="reverseDate != null">
+        #{reverseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="msgType != null">
+        #{msgType,jdbcType=VARCHAR},
+      </if>
+      <if test="errCode != null">
+        #{errCode,jdbcType=VARCHAR},
+      </if>
+      <if test="errMsg != null">
+        #{errMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyUrl != null">
+        #{notifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyMobileNo != null">
+        #{notifyMobileNo,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyEmail != null">
+        #{notifyEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="subInst != null">
+        #{subInst,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantName != null">
+        #{merchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="reverseInvoiceCode != null">
+        #{reverseInvoiceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reverseInvoiceNo != null">
+        #{reverseInvoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidSequence != null">
+        #{invalidSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidDate != null">
+        #{invalidDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invalidInvoiceCode != null">
+        #{invalidInvoiceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidInvoiceNo != null">
+        #{invalidInvoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidPerson != null">
+        #{invalidPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null">
+        #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null">
+        #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="traceId != null">
+        #{traceId,jdbcType=VARCHAR},
+      </if>
+      <if test="totalReversedAmount != null">
+        #{totalReversedAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="reverseCheckCode != null">
+        #{reverseCheckCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxMethod != null">
+        #{taxMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="deductionAmount != null">
+        #{deductionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="reverseCipherCode != null">
+        #{reverseCipherCode,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeId != null">
+        #{noticeId,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceId != null">
+        #{invoiceId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsDetail != null">
+        #{goodsDetail,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="andy.model.FPIvoiceHis">
+    update FP_INVOICE_HIS
+    <set>
+      <if test="version != null">
+        VERSION = #{version,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expireTime != null">
+        EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issueSequence != null">
+        ISSUE_SEQUENCE = #{issueSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="qrCodeId != null">
+        QR_CODE_ID = #{qrCodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="consumerId != null">
+        CONSUMER_ID = #{consumerId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceMaterial != null">
+        INVOICE_MATERIAL = #{invoiceMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceType != null">
+        INVOICE_TYPE = #{invoiceType,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceCode != null">
+        INVOICE_CODE = #{invoiceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNo != null">
+        INVOICE_NO = #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="checkCode != null">
+        CHECK_CODE = #{checkCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceNo != null">
+        DEVICE_NO = #{deviceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cipherCode != null">
+        CIPHER_CODE = #{cipherCode,jdbcType=VARCHAR},
+      </if>
+      <if test="issueDate != null">
+        ISSUE_DATE = #{issueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="merOrderId != null">
+        MER_ORDER_ID = #{merOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="merOrderDate != null">
+        MER_ORDER_DATE = #{merOrderDate,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        MERCHANT_ID = #{merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalId != null">
+        TERMINAL_ID = #{terminalId,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerName != null">
+        BUYER_NAME = #{buyerName,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerTaxCode != null">
+        BUYER_TAX_CODE = #{buyerTaxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerAddress != null">
+        BUYER_ADDRESS = #{buyerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerTelephone != null">
+        BUYER_TELEPHONE = #{buyerTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerBank != null">
+        BUYER_BANK = #{buyerBank,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerAccount != null">
+        BUYER_ACCOUNT = #{buyerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerName != null">
+        SELLER_NAME = #{sellerName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerTaxCode != null">
+        SELLER_TAX_CODE = #{sellerTaxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerAddress != null">
+        SELLER_ADDRESS = #{sellerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerTelephone != null">
+        SELLER_TELEPHONE = #{sellerTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerBank != null">
+        SELLER_BANK = #{sellerBank,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerAccount != null">
+        SELLER_ACCOUNT = #{sellerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null">
+        STORE_ID = #{storeId,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceProvider != null">
+        SERVICE_PROVIDER = #{serviceProvider,jdbcType=VARCHAR},
+      </if>
+      <if test="spDeviceId != null">
+        SP_DEVICE_ID = #{spDeviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="payee != null">
+        PAYEE = #{payee,jdbcType=VARCHAR},
+      </if>
+      <if test="checker != null">
+        CHECKER = #{checker,jdbcType=VARCHAR},
+      </if>
+      <if test="drawer != null">
+        DRAWER = #{drawer,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPriceIncludingTax != null">
+        TOTAL_PRICE_INCLUDING_TAX = #{totalPriceIncludingTax,jdbcType=DECIMAL},
+      </if>
+      <if test="totalTax != null">
+        TOTAL_TAX = #{totalTax,jdbcType=DECIMAL},
+      </if>
+      <if test="totalPrice != null">
+        TOTAL_PRICE = #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="reverseSequence != null">
+        REVERSE_SEQUENCE = #{reverseSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="reverseDate != null">
+        REVERSE_DATE = #{reverseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="msgType != null">
+        MSG_TYPE = #{msgType,jdbcType=VARCHAR},
+      </if>
+      <if test="errCode != null">
+        ERR_CODE = #{errCode,jdbcType=VARCHAR},
+      </if>
+      <if test="errMsg != null">
+        ERR_MSG = #{errMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyUrl != null">
+        NOTIFY_URL = #{notifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyMobileNo != null">
+        NOTIFY_MOBILE_NO = #{notifyMobileNo,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyEmail != null">
+        NOTIFY_EMAIL = #{notifyEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        SOURCE = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="subInst != null">
+        SUB_INST = #{subInst,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantName != null">
+        MERCHANT_NAME = #{merchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="reverseInvoiceCode != null">
+        REVERSE_INVOICE_CODE = #{reverseInvoiceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reverseInvoiceNo != null">
+        REVERSE_INVOICE_NO = #{reverseInvoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidSequence != null">
+        INVALID_SEQUENCE = #{invalidSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidDate != null">
+        INVALID_DATE = #{invalidDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invalidInvoiceCode != null">
+        INVALID_INVOICE_CODE = #{invalidInvoiceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidInvoiceNo != null">
+        INVALID_INVOICE_NO = #{invalidInvoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidPerson != null">
+        INVALID_PERSON = #{invalidPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null">
+        EXTEND1 = #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null">
+        EXTEND2 = #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="traceId != null">
+        TRACE_ID = #{traceId,jdbcType=VARCHAR},
+      </if>
+      <if test="totalReversedAmount != null">
+        TOTAL_REVERSED_AMOUNT = #{totalReversedAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="reverseCheckCode != null">
+        REVERSE_CHECK_CODE = #{reverseCheckCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxMethod != null">
+        TAX_METHOD = #{taxMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="deductionAmount != null">
+        DEDUCTION_AMOUNT = #{deductionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="reverseCipherCode != null">
+        REVERSE_CIPHER_CODE = #{reverseCipherCode,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeId != null">
+        NOTICE_ID = #{noticeId,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceId != null">
+        INVOICE_ID = #{invoiceId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsDetail != null">
+        GOODS_DETAIL = #{goodsDetail,jdbcType=CLOB},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="andy.model.FPIvoiceHis">
+    update FP_INVOICE_HIS
+    set VERSION = #{version,jdbcType=DECIMAL},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP},
+      ISSUE_SEQUENCE = #{issueSequence,jdbcType=VARCHAR},
+      QR_CODE_ID = #{qrCodeId,jdbcType=VARCHAR},
+      CONSUMER_ID = #{consumerId,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      INVOICE_MATERIAL = #{invoiceMaterial,jdbcType=VARCHAR},
+      INVOICE_TYPE = #{invoiceType,jdbcType=VARCHAR},
+      INVOICE_CODE = #{invoiceCode,jdbcType=VARCHAR},
+      INVOICE_NO = #{invoiceNo,jdbcType=VARCHAR},
+      CHECK_CODE = #{checkCode,jdbcType=VARCHAR},
+      DEVICE_NO = #{deviceNo,jdbcType=VARCHAR},
+      CIPHER_CODE = #{cipherCode,jdbcType=VARCHAR},
+      ISSUE_DATE = #{issueDate,jdbcType=TIMESTAMP},
+      MER_ORDER_ID = #{merOrderId,jdbcType=VARCHAR},
+      MER_ORDER_DATE = #{merOrderDate,jdbcType=VARCHAR},
+      MERCHANT_ID = #{merchantId,jdbcType=VARCHAR},
+      TERMINAL_ID = #{terminalId,jdbcType=VARCHAR},
+      BUYER_NAME = #{buyerName,jdbcType=VARCHAR},
+      BUYER_TAX_CODE = #{buyerTaxCode,jdbcType=VARCHAR},
+      BUYER_ADDRESS = #{buyerAddress,jdbcType=VARCHAR},
+      BUYER_TELEPHONE = #{buyerTelephone,jdbcType=VARCHAR},
+      BUYER_BANK = #{buyerBank,jdbcType=VARCHAR},
+      BUYER_ACCOUNT = #{buyerAccount,jdbcType=VARCHAR},
+      SELLER_NAME = #{sellerName,jdbcType=VARCHAR},
+      SELLER_TAX_CODE = #{sellerTaxCode,jdbcType=VARCHAR},
+      SELLER_ADDRESS = #{sellerAddress,jdbcType=VARCHAR},
+      SELLER_TELEPHONE = #{sellerTelephone,jdbcType=VARCHAR},
+      SELLER_BANK = #{sellerBank,jdbcType=VARCHAR},
+      SELLER_ACCOUNT = #{sellerAccount,jdbcType=VARCHAR},
+      STORE_ID = #{storeId,jdbcType=VARCHAR},
+      SERVICE_PROVIDER = #{serviceProvider,jdbcType=VARCHAR},
+      SP_DEVICE_ID = #{spDeviceId,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      PAYEE = #{payee,jdbcType=VARCHAR},
+      CHECKER = #{checker,jdbcType=VARCHAR},
+      DRAWER = #{drawer,jdbcType=VARCHAR},
+      TOTAL_PRICE_INCLUDING_TAX = #{totalPriceIncludingTax,jdbcType=DECIMAL},
+      TOTAL_TAX = #{totalTax,jdbcType=DECIMAL},
+      TOTAL_PRICE = #{totalPrice,jdbcType=DECIMAL},
+      REVERSE_SEQUENCE = #{reverseSequence,jdbcType=VARCHAR},
+      REVERSE_DATE = #{reverseDate,jdbcType=TIMESTAMP},
+      MSG_TYPE = #{msgType,jdbcType=VARCHAR},
+      ERR_CODE = #{errCode,jdbcType=VARCHAR},
+      ERR_MSG = #{errMsg,jdbcType=VARCHAR},
+      NOTIFY_URL = #{notifyUrl,jdbcType=VARCHAR},
+      NOTIFY_MOBILE_NO = #{notifyMobileNo,jdbcType=VARCHAR},
+      NOTIFY_EMAIL = #{notifyEmail,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=VARCHAR},
+      SUB_INST = #{subInst,jdbcType=VARCHAR},
+      MERCHANT_NAME = #{merchantName,jdbcType=VARCHAR},
+      REVERSE_INVOICE_CODE = #{reverseInvoiceCode,jdbcType=VARCHAR},
+      REVERSE_INVOICE_NO = #{reverseInvoiceNo,jdbcType=VARCHAR},
+      INVALID_SEQUENCE = #{invalidSequence,jdbcType=VARCHAR},
+      INVALID_DATE = #{invalidDate,jdbcType=TIMESTAMP},
+      INVALID_INVOICE_CODE = #{invalidInvoiceCode,jdbcType=VARCHAR},
+      INVALID_INVOICE_NO = #{invalidInvoiceNo,jdbcType=VARCHAR},
+      INVALID_PERSON = #{invalidPerson,jdbcType=VARCHAR},
+      EXTEND1 = #{extend1,jdbcType=VARCHAR},
+      EXTEND2 = #{extend2,jdbcType=VARCHAR},
+      TRACE_ID = #{traceId,jdbcType=VARCHAR},
+      TOTAL_REVERSED_AMOUNT = #{totalReversedAmount,jdbcType=DECIMAL},
+      REVERSE_CHECK_CODE = #{reverseCheckCode,jdbcType=VARCHAR},
+      TAX_METHOD = #{taxMethod,jdbcType=VARCHAR},
+      DEDUCTION_AMOUNT = #{deductionAmount,jdbcType=DECIMAL},
+      REVERSE_CIPHER_CODE = #{reverseCipherCode,jdbcType=VARCHAR},
+      NOTICE_ID = #{noticeId,jdbcType=VARCHAR},
+      INVOICE_ID = #{invoiceId,jdbcType=VARCHAR},
+      GOODS_DETAIL = #{goodsDetail,jdbcType=CLOB}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="andy.model.FPIvoiceHis">
+    update FP_INVOICE_HIS
+    set VERSION = #{version,jdbcType=DECIMAL},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP},
+      ISSUE_SEQUENCE = #{issueSequence,jdbcType=VARCHAR},
+      QR_CODE_ID = #{qrCodeId,jdbcType=VARCHAR},
+      CONSUMER_ID = #{consumerId,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      INVOICE_MATERIAL = #{invoiceMaterial,jdbcType=VARCHAR},
+      INVOICE_TYPE = #{invoiceType,jdbcType=VARCHAR},
+      INVOICE_CODE = #{invoiceCode,jdbcType=VARCHAR},
+      INVOICE_NO = #{invoiceNo,jdbcType=VARCHAR},
+      CHECK_CODE = #{checkCode,jdbcType=VARCHAR},
+      DEVICE_NO = #{deviceNo,jdbcType=VARCHAR},
+      CIPHER_CODE = #{cipherCode,jdbcType=VARCHAR},
+      ISSUE_DATE = #{issueDate,jdbcType=TIMESTAMP},
+      MER_ORDER_ID = #{merOrderId,jdbcType=VARCHAR},
+      MER_ORDER_DATE = #{merOrderDate,jdbcType=VARCHAR},
+      MERCHANT_ID = #{merchantId,jdbcType=VARCHAR},
+      TERMINAL_ID = #{terminalId,jdbcType=VARCHAR},
+      BUYER_NAME = #{buyerName,jdbcType=VARCHAR},
+      BUYER_TAX_CODE = #{buyerTaxCode,jdbcType=VARCHAR},
+      BUYER_ADDRESS = #{buyerAddress,jdbcType=VARCHAR},
+      BUYER_TELEPHONE = #{buyerTelephone,jdbcType=VARCHAR},
+      BUYER_BANK = #{buyerBank,jdbcType=VARCHAR},
+      BUYER_ACCOUNT = #{buyerAccount,jdbcType=VARCHAR},
+      SELLER_NAME = #{sellerName,jdbcType=VARCHAR},
+      SELLER_TAX_CODE = #{sellerTaxCode,jdbcType=VARCHAR},
+      SELLER_ADDRESS = #{sellerAddress,jdbcType=VARCHAR},
+      SELLER_TELEPHONE = #{sellerTelephone,jdbcType=VARCHAR},
+      SELLER_BANK = #{sellerBank,jdbcType=VARCHAR},
+      SELLER_ACCOUNT = #{sellerAccount,jdbcType=VARCHAR},
+      STORE_ID = #{storeId,jdbcType=VARCHAR},
+      SERVICE_PROVIDER = #{serviceProvider,jdbcType=VARCHAR},
+      SP_DEVICE_ID = #{spDeviceId,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      PAYEE = #{payee,jdbcType=VARCHAR},
+      CHECKER = #{checker,jdbcType=VARCHAR},
+      DRAWER = #{drawer,jdbcType=VARCHAR},
+      TOTAL_PRICE_INCLUDING_TAX = #{totalPriceIncludingTax,jdbcType=DECIMAL},
+      TOTAL_TAX = #{totalTax,jdbcType=DECIMAL},
+      TOTAL_PRICE = #{totalPrice,jdbcType=DECIMAL},
+      REVERSE_SEQUENCE = #{reverseSequence,jdbcType=VARCHAR},
+      REVERSE_DATE = #{reverseDate,jdbcType=TIMESTAMP},
+      MSG_TYPE = #{msgType,jdbcType=VARCHAR},
+      ERR_CODE = #{errCode,jdbcType=VARCHAR},
+      ERR_MSG = #{errMsg,jdbcType=VARCHAR},
+      NOTIFY_URL = #{notifyUrl,jdbcType=VARCHAR},
+      NOTIFY_MOBILE_NO = #{notifyMobileNo,jdbcType=VARCHAR},
+      NOTIFY_EMAIL = #{notifyEmail,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=VARCHAR},
+      SUB_INST = #{subInst,jdbcType=VARCHAR},
+      MERCHANT_NAME = #{merchantName,jdbcType=VARCHAR},
+      REVERSE_INVOICE_CODE = #{reverseInvoiceCode,jdbcType=VARCHAR},
+      REVERSE_INVOICE_NO = #{reverseInvoiceNo,jdbcType=VARCHAR},
+      INVALID_SEQUENCE = #{invalidSequence,jdbcType=VARCHAR},
+      INVALID_DATE = #{invalidDate,jdbcType=TIMESTAMP},
+      INVALID_INVOICE_CODE = #{invalidInvoiceCode,jdbcType=VARCHAR},
+      INVALID_INVOICE_NO = #{invalidInvoiceNo,jdbcType=VARCHAR},
+      INVALID_PERSON = #{invalidPerson,jdbcType=VARCHAR},
+      EXTEND1 = #{extend1,jdbcType=VARCHAR},
+      EXTEND2 = #{extend2,jdbcType=VARCHAR},
+      TRACE_ID = #{traceId,jdbcType=VARCHAR},
+      TOTAL_REVERSED_AMOUNT = #{totalReversedAmount,jdbcType=DECIMAL},
+      REVERSE_CHECK_CODE = #{reverseCheckCode,jdbcType=VARCHAR},
+      TAX_METHOD = #{taxMethod,jdbcType=VARCHAR},
+      DEDUCTION_AMOUNT = #{deductionAmount,jdbcType=DECIMAL},
+      REVERSE_CIPHER_CODE = #{reverseCipherCode,jdbcType=VARCHAR},
+      NOTICE_ID = #{noticeId,jdbcType=VARCHAR},
+      INVOICE_ID = #{invoiceId,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="andy.model.FPIvoiceHis">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="VERSION" jdbcType="DECIMAL" property="version" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="EXPIRE_TIME" jdbcType="TIMESTAMP" property="expireTime" />
+    <result column="ISSUE_SEQUENCE" jdbcType="VARCHAR" property="issueSequence" />
+    <result column="QR_CODE_ID" jdbcType="VARCHAR" property="qrCodeId" />
+    <result column="CONSUMER_ID" jdbcType="VARCHAR" property="consumerId" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="INVOICE_MATERIAL" jdbcType="VARCHAR" property="invoiceMaterial" />
+    <result column="INVOICE_TYPE" jdbcType="VARCHAR" property="invoiceType" />
+    <result column="INVOICE_CODE" jdbcType="VARCHAR" property="invoiceCode" />
+    <result column="INVOICE_NO" jdbcType="VARCHAR" property="invoiceNo" />
+    <result column="CHECK_CODE" jdbcType="VARCHAR" property="checkCode" />
+    <result column="DEVICE_NO" jdbcType="VARCHAR" property="deviceNo" />
+    <result column="CIPHER_CODE" jdbcType="VARCHAR" property="cipherCode" />
+    <result column="ISSUE_DATE" jdbcType="TIMESTAMP" property="issueDate" />
+    <result column="MER_ORDER_ID" jdbcType="VARCHAR" property="merOrderId" />
+    <result column="MER_ORDER_DATE" jdbcType="VARCHAR" property="merOrderDate" />
+    <result column="MERCHANT_ID" jdbcType="VARCHAR" property="merchantId" />
+    <result column="TERMINAL_ID" jdbcType="VARCHAR" property="terminalId" />
+    <result column="BUYER_NAME" jdbcType="VARCHAR" property="buyerName" />
+    <result column="BUYER_TAX_CODE" jdbcType="VARCHAR" property="buyerTaxCode" />
+    <result column="BUYER_ADDRESS" jdbcType="VARCHAR" property="buyerAddress" />
+    <result column="BUYER_TELEPHONE" jdbcType="VARCHAR" property="buyerTelephone" />
+    <result column="BUYER_BANK" jdbcType="VARCHAR" property="buyerBank" />
+    <result column="BUYER_ACCOUNT" jdbcType="VARCHAR" property="buyerAccount" />
+    <result column="SELLER_NAME" jdbcType="VARCHAR" property="sellerName" />
+    <result column="SELLER_TAX_CODE" jdbcType="VARCHAR" property="sellerTaxCode" />
+    <result column="SELLER_ADDRESS" jdbcType="VARCHAR" property="sellerAddress" />
+    <result column="SELLER_TELEPHONE" jdbcType="VARCHAR" property="sellerTelephone" />
+    <result column="SELLER_BANK" jdbcType="VARCHAR" property="sellerBank" />
+    <result column="SELLER_ACCOUNT" jdbcType="VARCHAR" property="sellerAccount" />
+    <result column="STORE_ID" jdbcType="VARCHAR" property="storeId" />
+    <result column="SERVICE_PROVIDER" jdbcType="VARCHAR" property="serviceProvider" />
+    <result column="SP_DEVICE_ID" jdbcType="VARCHAR" property="spDeviceId" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="PAYEE" jdbcType="VARCHAR" property="payee" />
+    <result column="CHECKER" jdbcType="VARCHAR" property="checker" />
+    <result column="DRAWER" jdbcType="VARCHAR" property="drawer" />
+    <result column="TOTAL_PRICE_INCLUDING_TAX" jdbcType="DECIMAL" property="totalPriceIncludingTax" />
+    <result column="TOTAL_TAX" jdbcType="DECIMAL" property="totalTax" />
+    <result column="TOTAL_PRICE" jdbcType="DECIMAL" property="totalPrice" />
+    <result column="REVERSE_SEQUENCE" jdbcType="VARCHAR" property="reverseSequence" />
+    <result column="REVERSE_DATE" jdbcType="TIMESTAMP" property="reverseDate" />
+    <result column="MSG_TYPE" jdbcType="VARCHAR" property="msgType" />
+    <result column="ERR_CODE" jdbcType="VARCHAR" property="errCode" />
+    <result column="ERR_MSG" jdbcType="VARCHAR" property="errMsg" />
+    <result column="NOTIFY_URL" jdbcType="VARCHAR" property="notifyUrl" />
+    <result column="NOTIFY_MOBILE_NO" jdbcType="VARCHAR" property="notifyMobileNo" />
+    <result column="NOTIFY_EMAIL" jdbcType="VARCHAR" property="notifyEmail" />
+    <result column="SOURCE" jdbcType="VARCHAR" property="source" />
+    <result column="SUB_INST" jdbcType="VARCHAR" property="subInst" />
+    <result column="MERCHANT_NAME" jdbcType="VARCHAR" property="merchantName" />
+    <result column="REVERSE_INVOICE_CODE" jdbcType="VARCHAR" property="reverseInvoiceCode" />
+    <result column="REVERSE_INVOICE_NO" jdbcType="VARCHAR" property="reverseInvoiceNo" />
+    <result column="INVALID_SEQUENCE" jdbcType="VARCHAR" property="invalidSequence" />
+    <result column="INVALID_DATE" jdbcType="TIMESTAMP" property="invalidDate" />
+    <result column="INVALID_INVOICE_CODE" jdbcType="VARCHAR" property="invalidInvoiceCode" />
+    <result column="INVALID_INVOICE_NO" jdbcType="VARCHAR" property="invalidInvoiceNo" />
+    <result column="INVALID_PERSON" jdbcType="VARCHAR" property="invalidPerson" />
+    <result column="EXTEND1" jdbcType="VARCHAR" property="extend1" />
+    <result column="EXTEND2" jdbcType="VARCHAR" property="extend2" />
+    <result column="TRACE_ID" jdbcType="VARCHAR" property="traceId" />
+    <result column="TOTAL_REVERSED_AMOUNT" jdbcType="DECIMAL" property="totalReversedAmount" />
+    <result column="REVERSE_CHECK_CODE" jdbcType="VARCHAR" property="reverseCheckCode" />
+    <result column="TAX_METHOD" jdbcType="VARCHAR" property="taxMethod" />
+    <result column="DEDUCTION_AMOUNT" jdbcType="DECIMAL" property="deductionAmount" />
+    <result column="REVERSE_CIPHER_CODE" jdbcType="VARCHAR" property="reverseCipherCode" />
+    <result column="NOTICE_ID" jdbcType="VARCHAR" property="noticeId" />
+    <result column="INVOICE_ID" jdbcType="VARCHAR" property="invoiceId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="andy.model.FPIvoiceHis">
+    <result column="GOODS_DETAIL" jdbcType="CLOB" property="goodsDetail" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, VERSION, CREATE_TIME, UPDATE_TIME, EXPIRE_TIME, ISSUE_SEQUENCE, QR_CODE_ID, CONSUMER_ID, 
+    STATUS, INVOICE_MATERIAL, INVOICE_TYPE, INVOICE_CODE, INVOICE_NO, CHECK_CODE, DEVICE_NO, 
+    CIPHER_CODE, ISSUE_DATE, MER_ORDER_ID, MER_ORDER_DATE, MERCHANT_ID, TERMINAL_ID, 
+    BUYER_NAME, BUYER_TAX_CODE, BUYER_ADDRESS, BUYER_TELEPHONE, BUYER_BANK, BUYER_ACCOUNT, 
+    SELLER_NAME, SELLER_TAX_CODE, SELLER_ADDRESS, SELLER_TELEPHONE, SELLER_BANK, SELLER_ACCOUNT, 
+    STORE_ID, SERVICE_PROVIDER, SP_DEVICE_ID, REMARK, PAYEE, CHECKER, DRAWER, TOTAL_PRICE_INCLUDING_TAX, 
+    TOTAL_TAX, TOTAL_PRICE, REVERSE_SEQUENCE, REVERSE_DATE, MSG_TYPE, ERR_CODE, ERR_MSG, 
+    NOTIFY_URL, NOTIFY_MOBILE_NO, NOTIFY_EMAIL, SOURCE, SUB_INST, MERCHANT_NAME, REVERSE_INVOICE_CODE, 
+    REVERSE_INVOICE_NO, INVALID_SEQUENCE, INVALID_DATE, INVALID_INVOICE_CODE, INVALID_INVOICE_NO, 
+    INVALID_PERSON, EXTEND1, EXTEND2, TRACE_ID, TOTAL_REVERSED_AMOUNT, REVERSE_CHECK_CODE, 
+    TAX_METHOD, DEDUCTION_AMOUNT, REVERSE_CIPHER_CODE, NOTICE_ID, INVOICE_ID
+  </sql>
+  <sql id="Blob_Column_List">
+    GOODS_DETAIL
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from FP_INVOICE_HIS
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from FP_INVOICE_HIS
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="andy.model.FPIvoiceHis">
+    insert into FP_INVOICE_HIS (ID, VERSION, CREATE_TIME, 
+      UPDATE_TIME, EXPIRE_TIME, ISSUE_SEQUENCE, 
+      QR_CODE_ID, CONSUMER_ID, STATUS, 
+      INVOICE_MATERIAL, INVOICE_TYPE, INVOICE_CODE, 
+      INVOICE_NO, CHECK_CODE, DEVICE_NO, 
+      CIPHER_CODE, ISSUE_DATE, MER_ORDER_ID, 
+      MER_ORDER_DATE, MERCHANT_ID, TERMINAL_ID, 
+      BUYER_NAME, BUYER_TAX_CODE, BUYER_ADDRESS, 
+      BUYER_TELEPHONE, BUYER_BANK, BUYER_ACCOUNT, 
+      SELLER_NAME, SELLER_TAX_CODE, SELLER_ADDRESS, 
+      SELLER_TELEPHONE, SELLER_BANK, SELLER_ACCOUNT, 
+      STORE_ID, SERVICE_PROVIDER, SP_DEVICE_ID, 
+      REMARK, PAYEE, CHECKER, 
+      DRAWER, TOTAL_PRICE_INCLUDING_TAX, TOTAL_TAX, 
+      TOTAL_PRICE, REVERSE_SEQUENCE, REVERSE_DATE, 
+      MSG_TYPE, ERR_CODE, ERR_MSG, 
+      NOTIFY_URL, NOTIFY_MOBILE_NO, NOTIFY_EMAIL, 
+      SOURCE, SUB_INST, MERCHANT_NAME, 
+      REVERSE_INVOICE_CODE, REVERSE_INVOICE_NO, INVALID_SEQUENCE, 
+      INVALID_DATE, INVALID_INVOICE_CODE, INVALID_INVOICE_NO, 
+      INVALID_PERSON, EXTEND1, EXTEND2, 
+      TRACE_ID, TOTAL_REVERSED_AMOUNT, REVERSE_CHECK_CODE, 
+      TAX_METHOD, DEDUCTION_AMOUNT, REVERSE_CIPHER_CODE, 
+      NOTICE_ID, INVOICE_ID, GOODS_DETAIL
+      )
+    values (#{id,jdbcType=VARCHAR}, #{version,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{expireTime,jdbcType=TIMESTAMP}, #{issueSequence,jdbcType=VARCHAR}, 
+      #{qrCodeId,jdbcType=VARCHAR}, #{consumerId,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{invoiceMaterial,jdbcType=VARCHAR}, #{invoiceType,jdbcType=VARCHAR}, #{invoiceCode,jdbcType=VARCHAR}, 
+      #{invoiceNo,jdbcType=VARCHAR}, #{checkCode,jdbcType=VARCHAR}, #{deviceNo,jdbcType=VARCHAR}, 
+      #{cipherCode,jdbcType=VARCHAR}, #{issueDate,jdbcType=TIMESTAMP}, #{merOrderId,jdbcType=VARCHAR}, 
+      #{merOrderDate,jdbcType=VARCHAR}, #{merchantId,jdbcType=VARCHAR}, #{terminalId,jdbcType=VARCHAR}, 
+      #{buyerName,jdbcType=VARCHAR}, #{buyerTaxCode,jdbcType=VARCHAR}, #{buyerAddress,jdbcType=VARCHAR}, 
+      #{buyerTelephone,jdbcType=VARCHAR}, #{buyerBank,jdbcType=VARCHAR}, #{buyerAccount,jdbcType=VARCHAR}, 
+      #{sellerName,jdbcType=VARCHAR}, #{sellerTaxCode,jdbcType=VARCHAR}, #{sellerAddress,jdbcType=VARCHAR}, 
+      #{sellerTelephone,jdbcType=VARCHAR}, #{sellerBank,jdbcType=VARCHAR}, #{sellerAccount,jdbcType=VARCHAR}, 
+      #{storeId,jdbcType=VARCHAR}, #{serviceProvider,jdbcType=VARCHAR}, #{spDeviceId,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{payee,jdbcType=VARCHAR}, #{checker,jdbcType=VARCHAR}, 
+      #{drawer,jdbcType=VARCHAR}, #{totalPriceIncludingTax,jdbcType=DECIMAL}, #{totalTax,jdbcType=DECIMAL}, 
+      #{totalPrice,jdbcType=DECIMAL}, #{reverseSequence,jdbcType=VARCHAR}, #{reverseDate,jdbcType=TIMESTAMP}, 
+      #{msgType,jdbcType=VARCHAR}, #{errCode,jdbcType=VARCHAR}, #{errMsg,jdbcType=VARCHAR}, 
+      #{notifyUrl,jdbcType=VARCHAR}, #{notifyMobileNo,jdbcType=VARCHAR}, #{notifyEmail,jdbcType=VARCHAR}, 
+      #{source,jdbcType=VARCHAR}, #{subInst,jdbcType=VARCHAR}, #{merchantName,jdbcType=VARCHAR}, 
+      #{reverseInvoiceCode,jdbcType=VARCHAR}, #{reverseInvoiceNo,jdbcType=VARCHAR}, #{invalidSequence,jdbcType=VARCHAR}, 
+      #{invalidDate,jdbcType=TIMESTAMP}, #{invalidInvoiceCode,jdbcType=VARCHAR}, #{invalidInvoiceNo,jdbcType=VARCHAR}, 
+      #{invalidPerson,jdbcType=VARCHAR}, #{extend1,jdbcType=VARCHAR}, #{extend2,jdbcType=VARCHAR}, 
+      #{traceId,jdbcType=VARCHAR}, #{totalReversedAmount,jdbcType=DECIMAL}, #{reverseCheckCode,jdbcType=VARCHAR}, 
+      #{taxMethod,jdbcType=VARCHAR}, #{deductionAmount,jdbcType=DECIMAL}, #{reverseCipherCode,jdbcType=VARCHAR}, 
+      #{noticeId,jdbcType=VARCHAR}, #{invoiceId,jdbcType=VARCHAR}, #{goodsDetail,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="andy.model.FPIvoiceHis">
+    insert into FP_INVOICE_HIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="version != null">
+        VERSION,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="expireTime != null">
+        EXPIRE_TIME,
+      </if>
+      <if test="issueSequence != null">
+        ISSUE_SEQUENCE,
+      </if>
+      <if test="qrCodeId != null">
+        QR_CODE_ID,
+      </if>
+      <if test="consumerId != null">
+        CONSUMER_ID,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="invoiceMaterial != null">
+        INVOICE_MATERIAL,
+      </if>
+      <if test="invoiceType != null">
+        INVOICE_TYPE,
+      </if>
+      <if test="invoiceCode != null">
+        INVOICE_CODE,
+      </if>
+      <if test="invoiceNo != null">
+        INVOICE_NO,
+      </if>
+      <if test="checkCode != null">
+        CHECK_CODE,
+      </if>
+      <if test="deviceNo != null">
+        DEVICE_NO,
+      </if>
+      <if test="cipherCode != null">
+        CIPHER_CODE,
+      </if>
+      <if test="issueDate != null">
+        ISSUE_DATE,
+      </if>
+      <if test="merOrderId != null">
+        MER_ORDER_ID,
+      </if>
+      <if test="merOrderDate != null">
+        MER_ORDER_DATE,
+      </if>
+      <if test="merchantId != null">
+        MERCHANT_ID,
+      </if>
+      <if test="terminalId != null">
+        TERMINAL_ID,
+      </if>
+      <if test="buyerName != null">
+        BUYER_NAME,
+      </if>
+      <if test="buyerTaxCode != null">
+        BUYER_TAX_CODE,
+      </if>
+      <if test="buyerAddress != null">
+        BUYER_ADDRESS,
+      </if>
+      <if test="buyerTelephone != null">
+        BUYER_TELEPHONE,
+      </if>
+      <if test="buyerBank != null">
+        BUYER_BANK,
+      </if>
+      <if test="buyerAccount != null">
+        BUYER_ACCOUNT,
+      </if>
+      <if test="sellerName != null">
+        SELLER_NAME,
+      </if>
+      <if test="sellerTaxCode != null">
+        SELLER_TAX_CODE,
+      </if>
+      <if test="sellerAddress != null">
+        SELLER_ADDRESS,
+      </if>
+      <if test="sellerTelephone != null">
+        SELLER_TELEPHONE,
+      </if>
+      <if test="sellerBank != null">
+        SELLER_BANK,
+      </if>
+      <if test="sellerAccount != null">
+        SELLER_ACCOUNT,
+      </if>
+      <if test="storeId != null">
+        STORE_ID,
+      </if>
+      <if test="serviceProvider != null">
+        SERVICE_PROVIDER,
+      </if>
+      <if test="spDeviceId != null">
+        SP_DEVICE_ID,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="payee != null">
+        PAYEE,
+      </if>
+      <if test="checker != null">
+        CHECKER,
+      </if>
+      <if test="drawer != null">
+        DRAWER,
+      </if>
+      <if test="totalPriceIncludingTax != null">
+        TOTAL_PRICE_INCLUDING_TAX,
+      </if>
+      <if test="totalTax != null">
+        TOTAL_TAX,
+      </if>
+      <if test="totalPrice != null">
+        TOTAL_PRICE,
+      </if>
+      <if test="reverseSequence != null">
+        REVERSE_SEQUENCE,
+      </if>
+      <if test="reverseDate != null">
+        REVERSE_DATE,
+      </if>
+      <if test="msgType != null">
+        MSG_TYPE,
+      </if>
+      <if test="errCode != null">
+        ERR_CODE,
+      </if>
+      <if test="errMsg != null">
+        ERR_MSG,
+      </if>
+      <if test="notifyUrl != null">
+        NOTIFY_URL,
+      </if>
+      <if test="notifyMobileNo != null">
+        NOTIFY_MOBILE_NO,
+      </if>
+      <if test="notifyEmail != null">
+        NOTIFY_EMAIL,
+      </if>
+      <if test="source != null">
+        SOURCE,
+      </if>
+      <if test="subInst != null">
+        SUB_INST,
+      </if>
+      <if test="merchantName != null">
+        MERCHANT_NAME,
+      </if>
+      <if test="reverseInvoiceCode != null">
+        REVERSE_INVOICE_CODE,
+      </if>
+      <if test="reverseInvoiceNo != null">
+        REVERSE_INVOICE_NO,
+      </if>
+      <if test="invalidSequence != null">
+        INVALID_SEQUENCE,
+      </if>
+      <if test="invalidDate != null">
+        INVALID_DATE,
+      </if>
+      <if test="invalidInvoiceCode != null">
+        INVALID_INVOICE_CODE,
+      </if>
+      <if test="invalidInvoiceNo != null">
+        INVALID_INVOICE_NO,
+      </if>
+      <if test="invalidPerson != null">
+        INVALID_PERSON,
+      </if>
+      <if test="extend1 != null">
+        EXTEND1,
+      </if>
+      <if test="extend2 != null">
+        EXTEND2,
+      </if>
+      <if test="traceId != null">
+        TRACE_ID,
+      </if>
+      <if test="totalReversedAmount != null">
+        TOTAL_REVERSED_AMOUNT,
+      </if>
+      <if test="reverseCheckCode != null">
+        REVERSE_CHECK_CODE,
+      </if>
+      <if test="taxMethod != null">
+        TAX_METHOD,
+      </if>
+      <if test="deductionAmount != null">
+        DEDUCTION_AMOUNT,
+      </if>
+      <if test="reverseCipherCode != null">
+        REVERSE_CIPHER_CODE,
+      </if>
+      <if test="noticeId != null">
+        NOTICE_ID,
+      </if>
+      <if test="invoiceId != null">
+        INVOICE_ID,
+      </if>
+      <if test="goodsDetail != null">
+        GOODS_DETAIL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expireTime != null">
+        #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issueSequence != null">
+        #{issueSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="qrCodeId != null">
+        #{qrCodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="consumerId != null">
+        #{consumerId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceMaterial != null">
+        #{invoiceMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceType != null">
+        #{invoiceType,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceCode != null">
+        #{invoiceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNo != null">
+        #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="checkCode != null">
+        #{checkCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceNo != null">
+        #{deviceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cipherCode != null">
+        #{cipherCode,jdbcType=VARCHAR},
+      </if>
+      <if test="issueDate != null">
+        #{issueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="merOrderId != null">
+        #{merOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="merOrderDate != null">
+        #{merOrderDate,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        #{merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalId != null">
+        #{terminalId,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerName != null">
+        #{buyerName,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerTaxCode != null">
+        #{buyerTaxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerAddress != null">
+        #{buyerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerTelephone != null">
+        #{buyerTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerBank != null">
+        #{buyerBank,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerAccount != null">
+        #{buyerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerName != null">
+        #{sellerName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerTaxCode != null">
+        #{sellerTaxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerAddress != null">
+        #{sellerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerTelephone != null">
+        #{sellerTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerBank != null">
+        #{sellerBank,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerAccount != null">
+        #{sellerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceProvider != null">
+        #{serviceProvider,jdbcType=VARCHAR},
+      </if>
+      <if test="spDeviceId != null">
+        #{spDeviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="payee != null">
+        #{payee,jdbcType=VARCHAR},
+      </if>
+      <if test="checker != null">
+        #{checker,jdbcType=VARCHAR},
+      </if>
+      <if test="drawer != null">
+        #{drawer,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPriceIncludingTax != null">
+        #{totalPriceIncludingTax,jdbcType=DECIMAL},
+      </if>
+      <if test="totalTax != null">
+        #{totalTax,jdbcType=DECIMAL},
+      </if>
+      <if test="totalPrice != null">
+        #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="reverseSequence != null">
+        #{reverseSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="reverseDate != null">
+        #{reverseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="msgType != null">
+        #{msgType,jdbcType=VARCHAR},
+      </if>
+      <if test="errCode != null">
+        #{errCode,jdbcType=VARCHAR},
+      </if>
+      <if test="errMsg != null">
+        #{errMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyUrl != null">
+        #{notifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyMobileNo != null">
+        #{notifyMobileNo,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyEmail != null">
+        #{notifyEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="subInst != null">
+        #{subInst,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantName != null">
+        #{merchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="reverseInvoiceCode != null">
+        #{reverseInvoiceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reverseInvoiceNo != null">
+        #{reverseInvoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidSequence != null">
+        #{invalidSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidDate != null">
+        #{invalidDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invalidInvoiceCode != null">
+        #{invalidInvoiceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidInvoiceNo != null">
+        #{invalidInvoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidPerson != null">
+        #{invalidPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null">
+        #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null">
+        #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="traceId != null">
+        #{traceId,jdbcType=VARCHAR},
+      </if>
+      <if test="totalReversedAmount != null">
+        #{totalReversedAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="reverseCheckCode != null">
+        #{reverseCheckCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxMethod != null">
+        #{taxMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="deductionAmount != null">
+        #{deductionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="reverseCipherCode != null">
+        #{reverseCipherCode,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeId != null">
+        #{noticeId,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceId != null">
+        #{invoiceId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsDetail != null">
+        #{goodsDetail,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="andy.model.FPIvoiceHis">
+    update FP_INVOICE_HIS
+    <set>
+      <if test="version != null">
+        VERSION = #{version,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expireTime != null">
+        EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issueSequence != null">
+        ISSUE_SEQUENCE = #{issueSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="qrCodeId != null">
+        QR_CODE_ID = #{qrCodeId,jdbcType=VARCHAR},
+      </if>
+      <if test="consumerId != null">
+        CONSUMER_ID = #{consumerId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceMaterial != null">
+        INVOICE_MATERIAL = #{invoiceMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceType != null">
+        INVOICE_TYPE = #{invoiceType,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceCode != null">
+        INVOICE_CODE = #{invoiceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceNo != null">
+        INVOICE_NO = #{invoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="checkCode != null">
+        CHECK_CODE = #{checkCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceNo != null">
+        DEVICE_NO = #{deviceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cipherCode != null">
+        CIPHER_CODE = #{cipherCode,jdbcType=VARCHAR},
+      </if>
+      <if test="issueDate != null">
+        ISSUE_DATE = #{issueDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="merOrderId != null">
+        MER_ORDER_ID = #{merOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="merOrderDate != null">
+        MER_ORDER_DATE = #{merOrderDate,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantId != null">
+        MERCHANT_ID = #{merchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalId != null">
+        TERMINAL_ID = #{terminalId,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerName != null">
+        BUYER_NAME = #{buyerName,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerTaxCode != null">
+        BUYER_TAX_CODE = #{buyerTaxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerAddress != null">
+        BUYER_ADDRESS = #{buyerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerTelephone != null">
+        BUYER_TELEPHONE = #{buyerTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerBank != null">
+        BUYER_BANK = #{buyerBank,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerAccount != null">
+        BUYER_ACCOUNT = #{buyerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerName != null">
+        SELLER_NAME = #{sellerName,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerTaxCode != null">
+        SELLER_TAX_CODE = #{sellerTaxCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerAddress != null">
+        SELLER_ADDRESS = #{sellerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerTelephone != null">
+        SELLER_TELEPHONE = #{sellerTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerBank != null">
+        SELLER_BANK = #{sellerBank,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerAccount != null">
+        SELLER_ACCOUNT = #{sellerAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="storeId != null">
+        STORE_ID = #{storeId,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceProvider != null">
+        SERVICE_PROVIDER = #{serviceProvider,jdbcType=VARCHAR},
+      </if>
+      <if test="spDeviceId != null">
+        SP_DEVICE_ID = #{spDeviceId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="payee != null">
+        PAYEE = #{payee,jdbcType=VARCHAR},
+      </if>
+      <if test="checker != null">
+        CHECKER = #{checker,jdbcType=VARCHAR},
+      </if>
+      <if test="drawer != null">
+        DRAWER = #{drawer,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPriceIncludingTax != null">
+        TOTAL_PRICE_INCLUDING_TAX = #{totalPriceIncludingTax,jdbcType=DECIMAL},
+      </if>
+      <if test="totalTax != null">
+        TOTAL_TAX = #{totalTax,jdbcType=DECIMAL},
+      </if>
+      <if test="totalPrice != null">
+        TOTAL_PRICE = #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="reverseSequence != null">
+        REVERSE_SEQUENCE = #{reverseSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="reverseDate != null">
+        REVERSE_DATE = #{reverseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="msgType != null">
+        MSG_TYPE = #{msgType,jdbcType=VARCHAR},
+      </if>
+      <if test="errCode != null">
+        ERR_CODE = #{errCode,jdbcType=VARCHAR},
+      </if>
+      <if test="errMsg != null">
+        ERR_MSG = #{errMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyUrl != null">
+        NOTIFY_URL = #{notifyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyMobileNo != null">
+        NOTIFY_MOBILE_NO = #{notifyMobileNo,jdbcType=VARCHAR},
+      </if>
+      <if test="notifyEmail != null">
+        NOTIFY_EMAIL = #{notifyEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        SOURCE = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="subInst != null">
+        SUB_INST = #{subInst,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantName != null">
+        MERCHANT_NAME = #{merchantName,jdbcType=VARCHAR},
+      </if>
+      <if test="reverseInvoiceCode != null">
+        REVERSE_INVOICE_CODE = #{reverseInvoiceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="reverseInvoiceNo != null">
+        REVERSE_INVOICE_NO = #{reverseInvoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidSequence != null">
+        INVALID_SEQUENCE = #{invalidSequence,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidDate != null">
+        INVALID_DATE = #{invalidDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invalidInvoiceCode != null">
+        INVALID_INVOICE_CODE = #{invalidInvoiceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidInvoiceNo != null">
+        INVALID_INVOICE_NO = #{invalidInvoiceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="invalidPerson != null">
+        INVALID_PERSON = #{invalidPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="extend1 != null">
+        EXTEND1 = #{extend1,jdbcType=VARCHAR},
+      </if>
+      <if test="extend2 != null">
+        EXTEND2 = #{extend2,jdbcType=VARCHAR},
+      </if>
+      <if test="traceId != null">
+        TRACE_ID = #{traceId,jdbcType=VARCHAR},
+      </if>
+      <if test="totalReversedAmount != null">
+        TOTAL_REVERSED_AMOUNT = #{totalReversedAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="reverseCheckCode != null">
+        REVERSE_CHECK_CODE = #{reverseCheckCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taxMethod != null">
+        TAX_METHOD = #{taxMethod,jdbcType=VARCHAR},
+      </if>
+      <if test="deductionAmount != null">
+        DEDUCTION_AMOUNT = #{deductionAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="reverseCipherCode != null">
+        REVERSE_CIPHER_CODE = #{reverseCipherCode,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeId != null">
+        NOTICE_ID = #{noticeId,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceId != null">
+        INVOICE_ID = #{invoiceId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsDetail != null">
+        GOODS_DETAIL = #{goodsDetail,jdbcType=CLOB},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="andy.model.FPIvoiceHis">
+    update FP_INVOICE_HIS
+    set VERSION = #{version,jdbcType=DECIMAL},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP},
+      ISSUE_SEQUENCE = #{issueSequence,jdbcType=VARCHAR},
+      QR_CODE_ID = #{qrCodeId,jdbcType=VARCHAR},
+      CONSUMER_ID = #{consumerId,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      INVOICE_MATERIAL = #{invoiceMaterial,jdbcType=VARCHAR},
+      INVOICE_TYPE = #{invoiceType,jdbcType=VARCHAR},
+      INVOICE_CODE = #{invoiceCode,jdbcType=VARCHAR},
+      INVOICE_NO = #{invoiceNo,jdbcType=VARCHAR},
+      CHECK_CODE = #{checkCode,jdbcType=VARCHAR},
+      DEVICE_NO = #{deviceNo,jdbcType=VARCHAR},
+      CIPHER_CODE = #{cipherCode,jdbcType=VARCHAR},
+      ISSUE_DATE = #{issueDate,jdbcType=TIMESTAMP},
+      MER_ORDER_ID = #{merOrderId,jdbcType=VARCHAR},
+      MER_ORDER_DATE = #{merOrderDate,jdbcType=VARCHAR},
+      MERCHANT_ID = #{merchantId,jdbcType=VARCHAR},
+      TERMINAL_ID = #{terminalId,jdbcType=VARCHAR},
+      BUYER_NAME = #{buyerName,jdbcType=VARCHAR},
+      BUYER_TAX_CODE = #{buyerTaxCode,jdbcType=VARCHAR},
+      BUYER_ADDRESS = #{buyerAddress,jdbcType=VARCHAR},
+      BUYER_TELEPHONE = #{buyerTelephone,jdbcType=VARCHAR},
+      BUYER_BANK = #{buyerBank,jdbcType=VARCHAR},
+      BUYER_ACCOUNT = #{buyerAccount,jdbcType=VARCHAR},
+      SELLER_NAME = #{sellerName,jdbcType=VARCHAR},
+      SELLER_TAX_CODE = #{sellerTaxCode,jdbcType=VARCHAR},
+      SELLER_ADDRESS = #{sellerAddress,jdbcType=VARCHAR},
+      SELLER_TELEPHONE = #{sellerTelephone,jdbcType=VARCHAR},
+      SELLER_BANK = #{sellerBank,jdbcType=VARCHAR},
+      SELLER_ACCOUNT = #{sellerAccount,jdbcType=VARCHAR},
+      STORE_ID = #{storeId,jdbcType=VARCHAR},
+      SERVICE_PROVIDER = #{serviceProvider,jdbcType=VARCHAR},
+      SP_DEVICE_ID = #{spDeviceId,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      PAYEE = #{payee,jdbcType=VARCHAR},
+      CHECKER = #{checker,jdbcType=VARCHAR},
+      DRAWER = #{drawer,jdbcType=VARCHAR},
+      TOTAL_PRICE_INCLUDING_TAX = #{totalPriceIncludingTax,jdbcType=DECIMAL},
+      TOTAL_TAX = #{totalTax,jdbcType=DECIMAL},
+      TOTAL_PRICE = #{totalPrice,jdbcType=DECIMAL},
+      REVERSE_SEQUENCE = #{reverseSequence,jdbcType=VARCHAR},
+      REVERSE_DATE = #{reverseDate,jdbcType=TIMESTAMP},
+      MSG_TYPE = #{msgType,jdbcType=VARCHAR},
+      ERR_CODE = #{errCode,jdbcType=VARCHAR},
+      ERR_MSG = #{errMsg,jdbcType=VARCHAR},
+      NOTIFY_URL = #{notifyUrl,jdbcType=VARCHAR},
+      NOTIFY_MOBILE_NO = #{notifyMobileNo,jdbcType=VARCHAR},
+      NOTIFY_EMAIL = #{notifyEmail,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=VARCHAR},
+      SUB_INST = #{subInst,jdbcType=VARCHAR},
+      MERCHANT_NAME = #{merchantName,jdbcType=VARCHAR},
+      REVERSE_INVOICE_CODE = #{reverseInvoiceCode,jdbcType=VARCHAR},
+      REVERSE_INVOICE_NO = #{reverseInvoiceNo,jdbcType=VARCHAR},
+      INVALID_SEQUENCE = #{invalidSequence,jdbcType=VARCHAR},
+      INVALID_DATE = #{invalidDate,jdbcType=TIMESTAMP},
+      INVALID_INVOICE_CODE = #{invalidInvoiceCode,jdbcType=VARCHAR},
+      INVALID_INVOICE_NO = #{invalidInvoiceNo,jdbcType=VARCHAR},
+      INVALID_PERSON = #{invalidPerson,jdbcType=VARCHAR},
+      EXTEND1 = #{extend1,jdbcType=VARCHAR},
+      EXTEND2 = #{extend2,jdbcType=VARCHAR},
+      TRACE_ID = #{traceId,jdbcType=VARCHAR},
+      TOTAL_REVERSED_AMOUNT = #{totalReversedAmount,jdbcType=DECIMAL},
+      REVERSE_CHECK_CODE = #{reverseCheckCode,jdbcType=VARCHAR},
+      TAX_METHOD = #{taxMethod,jdbcType=VARCHAR},
+      DEDUCTION_AMOUNT = #{deductionAmount,jdbcType=DECIMAL},
+      REVERSE_CIPHER_CODE = #{reverseCipherCode,jdbcType=VARCHAR},
+      NOTICE_ID = #{noticeId,jdbcType=VARCHAR},
+      INVOICE_ID = #{invoiceId,jdbcType=VARCHAR},
+      GOODS_DETAIL = #{goodsDetail,jdbcType=CLOB}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="andy.model.FPIvoiceHis">
+    update FP_INVOICE_HIS
+    set VERSION = #{version,jdbcType=DECIMAL},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      EXPIRE_TIME = #{expireTime,jdbcType=TIMESTAMP},
+      ISSUE_SEQUENCE = #{issueSequence,jdbcType=VARCHAR},
+      QR_CODE_ID = #{qrCodeId,jdbcType=VARCHAR},
+      CONSUMER_ID = #{consumerId,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      INVOICE_MATERIAL = #{invoiceMaterial,jdbcType=VARCHAR},
+      INVOICE_TYPE = #{invoiceType,jdbcType=VARCHAR},
+      INVOICE_CODE = #{invoiceCode,jdbcType=VARCHAR},
+      INVOICE_NO = #{invoiceNo,jdbcType=VARCHAR},
+      CHECK_CODE = #{checkCode,jdbcType=VARCHAR},
+      DEVICE_NO = #{deviceNo,jdbcType=VARCHAR},
+      CIPHER_CODE = #{cipherCode,jdbcType=VARCHAR},
+      ISSUE_DATE = #{issueDate,jdbcType=TIMESTAMP},
+      MER_ORDER_ID = #{merOrderId,jdbcType=VARCHAR},
+      MER_ORDER_DATE = #{merOrderDate,jdbcType=VARCHAR},
+      MERCHANT_ID = #{merchantId,jdbcType=VARCHAR},
+      TERMINAL_ID = #{terminalId,jdbcType=VARCHAR},
+      BUYER_NAME = #{buyerName,jdbcType=VARCHAR},
+      BUYER_TAX_CODE = #{buyerTaxCode,jdbcType=VARCHAR},
+      BUYER_ADDRESS = #{buyerAddress,jdbcType=VARCHAR},
+      BUYER_TELEPHONE = #{buyerTelephone,jdbcType=VARCHAR},
+      BUYER_BANK = #{buyerBank,jdbcType=VARCHAR},
+      BUYER_ACCOUNT = #{buyerAccount,jdbcType=VARCHAR},
+      SELLER_NAME = #{sellerName,jdbcType=VARCHAR},
+      SELLER_TAX_CODE = #{sellerTaxCode,jdbcType=VARCHAR},
+      SELLER_ADDRESS = #{sellerAddress,jdbcType=VARCHAR},
+      SELLER_TELEPHONE = #{sellerTelephone,jdbcType=VARCHAR},
+      SELLER_BANK = #{sellerBank,jdbcType=VARCHAR},
+      SELLER_ACCOUNT = #{sellerAccount,jdbcType=VARCHAR},
+      STORE_ID = #{storeId,jdbcType=VARCHAR},
+      SERVICE_PROVIDER = #{serviceProvider,jdbcType=VARCHAR},
+      SP_DEVICE_ID = #{spDeviceId,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      PAYEE = #{payee,jdbcType=VARCHAR},
+      CHECKER = #{checker,jdbcType=VARCHAR},
+      DRAWER = #{drawer,jdbcType=VARCHAR},
+      TOTAL_PRICE_INCLUDING_TAX = #{totalPriceIncludingTax,jdbcType=DECIMAL},
+      TOTAL_TAX = #{totalTax,jdbcType=DECIMAL},
+      TOTAL_PRICE = #{totalPrice,jdbcType=DECIMAL},
+      REVERSE_SEQUENCE = #{reverseSequence,jdbcType=VARCHAR},
+      REVERSE_DATE = #{reverseDate,jdbcType=TIMESTAMP},
+      MSG_TYPE = #{msgType,jdbcType=VARCHAR},
+      ERR_CODE = #{errCode,jdbcType=VARCHAR},
+      ERR_MSG = #{errMsg,jdbcType=VARCHAR},
+      NOTIFY_URL = #{notifyUrl,jdbcType=VARCHAR},
+      NOTIFY_MOBILE_NO = #{notifyMobileNo,jdbcType=VARCHAR},
+      NOTIFY_EMAIL = #{notifyEmail,jdbcType=VARCHAR},
+      SOURCE = #{source,jdbcType=VARCHAR},
+      SUB_INST = #{subInst,jdbcType=VARCHAR},
+      MERCHANT_NAME = #{merchantName,jdbcType=VARCHAR},
+      REVERSE_INVOICE_CODE = #{reverseInvoiceCode,jdbcType=VARCHAR},
+      REVERSE_INVOICE_NO = #{reverseInvoiceNo,jdbcType=VARCHAR},
+      INVALID_SEQUENCE = #{invalidSequence,jdbcType=VARCHAR},
+      INVALID_DATE = #{invalidDate,jdbcType=TIMESTAMP},
+      INVALID_INVOICE_CODE = #{invalidInvoiceCode,jdbcType=VARCHAR},
+      INVALID_INVOICE_NO = #{invalidInvoiceNo,jdbcType=VARCHAR},
+      INVALID_PERSON = #{invalidPerson,jdbcType=VARCHAR},
+      EXTEND1 = #{extend1,jdbcType=VARCHAR},
+      EXTEND2 = #{extend2,jdbcType=VARCHAR},
+      TRACE_ID = #{traceId,jdbcType=VARCHAR},
+      TOTAL_REVERSED_AMOUNT = #{totalReversedAmount,jdbcType=DECIMAL},
+      REVERSE_CHECK_CODE = #{reverseCheckCode,jdbcType=VARCHAR},
+      TAX_METHOD = #{taxMethod,jdbcType=VARCHAR},
+      DEDUCTION_AMOUNT = #{deductionAmount,jdbcType=DECIMAL},
+      REVERSE_CIPHER_CODE = #{reverseCipherCode,jdbcType=VARCHAR},
+      NOTICE_ID = #{noticeId,jdbcType=VARCHAR},
+      INVOICE_ID = #{invoiceId,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
