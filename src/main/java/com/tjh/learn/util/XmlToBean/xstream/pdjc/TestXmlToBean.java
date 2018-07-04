@@ -50,5 +50,12 @@ public class TestXmlToBean {
         String xml = xstream.toXML(checkResXml);
         CheckResXml checkResXml11 = (CheckResXml) xstream.fromXML(xml);
         System.out.println(checkResXml11.toString());
+        System.out.println(checkResXml11.getBody());
+        System.out.println(checkResXml11.getBody().getResponse().getResult().getInfo());
+        System.out.println(checkResXml11.getBody().getResponse().getResult().getInfo().getGoodsList());
+        List goodsList = checkResXml11.getBody().getResponse().getResult().getInfo().getGoodsList();
+        for (Object good:goodsList){
+            System.out.println(good);
+        }
     }
 }
