@@ -7,3 +7,5 @@
 *.idea
 
 /**/target
+/.idea/compiler.xml
+/.idea/workspace.xml
