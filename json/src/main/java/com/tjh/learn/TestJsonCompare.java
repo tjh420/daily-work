@@ -25,17 +25,20 @@ public class TestJsonCompare {
         JSONObject jsonObject5 = JSONObject.parseObject(ershouche);
         List<String> keys1 = JsonCompareKey.compare(jsonObject1, jsonObject3);
         Collections.sort(keys1);
-        System.out.println(keys1);
+        log.info("keys1:{}", keys1);
 //        System.out.println(differentKey1);
 //        System.out.println(differentKey2);
         List<String> keys2 = JsonCompareKey.compare(jsonObject3, jsonObject4);
         Collections.sort(keys2);
-        System.out.println(keys2);
+        log.info("keys2:{}", keys2);
 //        System.out.println(differentKey1);
 //        System.out.println(differentKey2);
         List<String> keys3 = JsonCompareKey.compare(jsonObject2, jsonObject5);
         Collections.sort(keys3);
-        System.out.println(keys3);
+        log.info("jsonObject2.size:{}",jsonObject2.size());
+        log.info("jsonObject5.size:{}",jsonObject5.size());
+        log.info("keys3.size:{}",keys3.size());
+        log.info("key3:{}", keys3);
 //        System.out.println(differentKey1);
 //        System.out.println(differentKey2);
         for (String o : keys1) {
@@ -48,10 +51,10 @@ public class TestJsonCompare {
                 sameKey.add(o);
             }
         }
-        System.out.println(sameKey);
+        log.info("sameKey:{}", sameKey);
         for (String k : sameKey) {
-            map.put(k,jsonObject4.get(k));
+            map.put(k, jsonObject4.get(k));
         }
-        System.out.println(map);
+        log.info("map:{}", map);
     }
 }
