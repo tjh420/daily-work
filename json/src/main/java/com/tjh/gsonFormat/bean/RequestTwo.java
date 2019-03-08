@@ -1,4 +1,4 @@
-package com.tjh.gsonFormat;
+package com.tjh.gsonFormat.bean;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
