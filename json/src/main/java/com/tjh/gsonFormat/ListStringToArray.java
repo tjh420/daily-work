@@ -29,5 +29,9 @@ public class ListStringToArray {
 
         JSONArray array = JSONArray.parseArray(loveList);
         System.out.println(array);
+
+        String aList = "[\"c7bcf0dd-78ef-4070-8610-0a99c51fb76d\",\"c7bcf0dd-78ef-4070-8610-0a99c51fb76d\"]";
+        JSONArray aArray = JSON.parseArray(aList);
+        System.out.println(aArray.get(1));
     }
 }
