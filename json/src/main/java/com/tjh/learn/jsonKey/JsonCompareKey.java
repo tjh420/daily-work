@@ -1,4 +1,4 @@
-package com.tjh.learn;
+package com.tjh.learn.jsonKey;
 
 import com.alibaba.fastjson.JSONObject;
 
@@ -61,6 +61,29 @@ public class JsonCompareKey {
             }
         }
         return sameKey;
+    }
+
+    public static List<String> getAllDiffKey(JSONObject json1, JSONObject json2) {
+        List<String> allDiffKey = new ArrayList<>();
+        Iterator<String> i = json1.keySet().iterator();
+        Iterator<String> j = json2.keySet().iterator();
+        while (i.hasNext()) {
+            String key = i.next();
+            if (json2.get(key) == null) {
+                allDiffKey.add(key);
+            } else {
+                continue;
+            }
+        }
+        while (j.hasNext()) {
+            String key = j.next();
+            if (json1.get(key) == null) {
+                allDiffKey.add(key);
+            } else {
+                continue;
+            }
+        }
+        return allDiffKey;
     }
 
 }
