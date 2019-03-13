@@ -16,7 +16,11 @@ public class TestGetAllDiffKey {
         JSONObject jsonObject2 = JSONObject.parseObject(verhicle);
         List<String> allDiffKey = JsonCompareKey.getAllDiffKey(jsonObject1,jsonObject2);
         List<String> sameKey = JsonCompareKey.compare(jsonObject1,jsonObject2);
+        List<String> allKey = JsonCompareKey.getAllKey(jsonObject1,jsonObject2);
+        JSONObject all = JsonCompareKey.getAll(jsonObject1,jsonObject2);
         System.out.println(allDiffKey);
         System.out.println(sameKey);
+        System.out.println(allKey);
+        System.out.println(all);
     }
 }

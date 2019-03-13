@@ -86,4 +86,72 @@ public class JsonCompareKey {
         return allDiffKey;
     }
 
+    public static List<String> getAllKey(JSONObject json1,JSONObject json2){
+        List<String> allKey = new ArrayList<>();
+        Iterator<String> i = json1.keySet().iterator();
+        Iterator<String> j = json2.keySet().iterator();
+        if (json1.size()>json2.size()){
+            while (i.hasNext()) {
+                String key = i.next();
+                allKey.add(key);
+            }
+            while (j.hasNext()) {
+                String key = j.next();
+                if (json1.get(key) == null) {
+                    allKey.add(key);
+                } else {
+                    continue;
+                }
+            }
+        }else {
+            while (j.hasNext()) {
+                String key = j.next();
+                allKey.add(key);
+            }
+            while (i.hasNext()) {
+                String key = i.next();
+                if (json2.get(key) == null) {
+                    allKey.add(key);
+                } else {
+                    continue;
+                }
+            }
+        }
+        return allKey;
+    }
+
+    public static JSONObject getAll(JSONObject json1,JSONObject json2){
+        JSONObject all = new JSONObject();
+        Iterator<String> i = json1.keySet().iterator();
+        Iterator<String> j = json2.keySet().iterator();
+        if (json1.size()>json2.size()){
+            while (i.hasNext()) {
+                String key = i.next();
+                all.put(key,"aaa");
+            }
+            while (j.hasNext()) {
+                String key = j.next();
+                if (json1.get(key) == null) {
+                    all.put(key,"aaa");
+                } else {
+                    continue;
+                }
+            }
+        }else {
+            while (j.hasNext()) {
+                String key = j.next();
+                all.put(key,"aaa");
+            }
+            while (i.hasNext()) {
+                String key = i.next();
+                if (json2.get(key) == null) {
+                    all.put(key,"aaa");
+                } else {
+                    continue;
+                }
+            }
+        }
+        return all;
+    }
+
 }
