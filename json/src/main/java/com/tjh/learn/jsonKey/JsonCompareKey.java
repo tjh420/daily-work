@@ -127,12 +127,12 @@ public class JsonCompareKey {
         if (json1.size()>json2.size()){
             while (i.hasNext()) {
                 String key = i.next();
-                all.put(key,"aaa");
+                all.put(key,json1.get(key));
             }
             while (j.hasNext()) {
                 String key = j.next();
                 if (json1.get(key) == null) {
-                    all.put(key,"aaa");
+                    all.put(key,json2.get(key));
                 } else {
                     continue;
                 }
@@ -140,12 +140,12 @@ public class JsonCompareKey {
         }else {
             while (j.hasNext()) {
                 String key = j.next();
-                all.put(key,"aaa");
+                all.put(key,json2.get(key));
             }
             while (i.hasNext()) {
                 String key = i.next();
                 if (json2.get(key) == null) {
-                    all.put(key,"aaa");
+                    all.put(key,json1.get(key));
                 } else {
                     continue;
                 }
